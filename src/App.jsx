@@ -83,7 +83,7 @@ const StyledLink = styled(Link)`
 
 function App() {
   return (
-    <Router>
+    <Router basename='/Barman/'>
       <AppContainer>
         <BackgroundPattern />
         <Nav>
