@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Home from './pages/Home';
 import Summary from './pages/Summary';
 import Contact from './pages/Contact';
+import Game from './pages/Game';
 import BackgroundPattern from './components/BackgroundPattern';
 
 const AppContainer = styled.div`
@@ -92,6 +93,7 @@ function App() {
             <NavLinks>
               <StyledLink to="/">בית</StyledLink>
               <StyledLink to="/summary">סיכום</StyledLink>
+              <StyledLink to="/game">משחק</StyledLink>
               <StyledLink to="/contact">צור קשר</StyledLink>
             </NavLinks>
           </NavContainer>
@@ -99,6 +101,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/summary" element={<Summary />} />
+          <Route path="/game" element={<Game />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AppContainer>
