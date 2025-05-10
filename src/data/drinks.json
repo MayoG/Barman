@@ -1,11 +1,13 @@
 {
   "drinks": [
     {
-      "name": "אנטיקה פורמולה",
+      "hebrewName": "אנטיקה פורמולה",
+      "englishName": "Antica Formula",
       "type": "ורמוט"
     },
     {
-      "name": "מאונט גיי",
+      "hebrewName": "מאונט גיי",
+      "englishName": "Mount Gay",
       "type": "רום"
     }
   ]

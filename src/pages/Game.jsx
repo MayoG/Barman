@@ -146,7 +146,7 @@ function Game() {
     <GameContainer>
       <Title>משחק המשקאות</Title>
       <Score>ניקוד: {score}</Score>
-      <DrinkName>{currentDrink.name}</DrinkName>
+      <DrinkName>{currentDrink.hebrewName} - {currentDrink.englishName}</DrinkName>
       <OptionsContainer>
         {options.map((option) => (
           <OptionButton
