@@ -86,6 +86,7 @@ const Controls = styled.div`
   justify-content: center;
   width: 100%;
   padding: 0.5rem 0;
+  position: relative;
 `;
 
 const Button = styled.button`
@@ -146,6 +147,29 @@ const PageInfo = styled.span`
   font-size: 1.1rem;
 `;
 
+const DownloadButton = styled(Button)`
+  position: absolute;
+  right: 0;
+  background: rgba(46, 204, 113, 0.2);
+  border-color: rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  min-width: 40px;
+  height: 40px;
+
+  &:hover {
+    background: rgba(46, 204, 113, 0.3);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+`;
+
 // Memoized Page component to prevent unnecessary re-renders
 const MemoizedPage = memo(({ pageNumber, scale }) => (
   <PageWrapper>
@@ -164,7 +188,7 @@ const MemoizedPage = memo(({ pageNumber, scale }) => (
 MemoizedPage.displayName = 'MemoizedPage';
 
 // Memoized Controls component
-const MemoizedControls = memo(({ pageNumber, numPages, onPageChange, onPageInputChange, onPageInputSubmit, inputPage }) => (
+const MemoizedControls = memo(({ pageNumber, numPages, onPageChange, onPageInputChange, onPageInputSubmit, inputPage, onDownload }) => (
   <Controls>
     <Button
       type="button"
@@ -193,6 +217,13 @@ const MemoizedControls = memo(({ pageNumber, numPages, onPageChange, onPageInput
     >
       עמוד הבא
     </Button>
+    <DownloadButton onClick={onDownload} title="הורד PDF">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
+      </svg>
+    </DownloadButton>
   </Controls>
 ));
 
@@ -234,6 +265,15 @@ function Summary() {
     setInputPage('');
   }, [inputPage, numPages]);
 
+  const handleDownload = useCallback(() => {
+    const link = document.createElement('a');
+    link.href = './summary.pdf';
+    link.download = 'summary.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, []);
+
   return (
     <SummaryContainer>
       <Title>סיכום</Title>
@@ -255,6 +295,7 @@ function Summary() {
             onPageInputChange={handlePageInputChange}
             onPageInputSubmit={handlePageInputSubmit}
             inputPage={inputPage}
+            onDownload={handleDownload}
           />
         </PDFWrapper>
       </PDFContainer>
