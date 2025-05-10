@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import Home from './pages/Home';
 import Summary from './pages/Summary';
@@ -84,7 +84,7 @@ const StyledLink = styled(Link)`
 
 function App() {
   return (
-    <Router basename='/Barman/'>
+    <Router>
       <AppContainer>
         <BackgroundPattern />
         <Nav>
