@@ -262,7 +262,7 @@ Please change the parent <Route path="${L}"> to <Route path="${L==="/"?"*":`${L}
 `,CN=Pt.h1`
   color: #d4af37;
   margin-bottom: 2rem;
-`;function RN(){return et.jsxs(TN,{children:[et.jsx(CN,{children:"צור קשר"}),et.jsx("p",{children:"בקרוב..."})]})}const MN=[{name:"אנטיקה פורמולה",type:"ורמוט"},{name:"מאונט גיי",type:"רום"}],LN={drinks:MN},DN=Pt.div`
+`;function RN(){return et.jsxs(TN,{children:[et.jsx(CN,{children:"צור קשר"}),et.jsx("p",{children:"בקרוב..."})]})}const MN=[{hebrewName:"אנטיקה פורמולה",englishName:"Antica Formula",type:"ורמוט"},{hebrewName:"מאונט גיי",englishName:"Mount Gay",type:"רום"}],LN={drinks:MN},DN=Pt.div`
   max-width: 800px;
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -337,7 +337,7 @@ Please change the parent <Route path="${L}"> to <Route path="${L==="/"?"*":`${L}
   color: #d4af37;
   margin-bottom: 2rem;
   text-align: center;
-`,{drinks:Sg}=LN,HN=[...new Set(Sg.map(c=>c.type))];function zN(){const[c,t]=F.useState(0),[e,s]=F.useState(null),[r,l]=F.useState(0),[u,d]=F.useState(null),[f,g]=F.useState(null),m=Sg[c],b=v=>{e||(s(v),v===m.type?(d(v),l(A=>A+1),setTimeout(()=>{t(A=>(A+1)%Sg.length),s(null),d(null),g(null)},1500)):(g(v),d(m.type),setTimeout(()=>{t(A=>(A+1)%Sg.length),s(null),d(null),g(null)},1500)))};return et.jsxs(DN,{children:[et.jsx(ON,{children:"משחק המשקאות"}),et.jsxs(FN,{children:["ניקוד: ",r]}),et.jsx(kN,{children:m.name}),et.jsx(NN,{children:HN.map(v=>et.jsx(PN,{onClick:()=>b(v),disabled:e!==null,isCorrect:v===m.type&&e!==null,isWrong:e===v&&v!==m.type,children:v},v))})]})}const IN="/Barman/assets/Fernet-Branca-DCT2iXc0.png",UN=Pt.div`
+`,{drinks:Sg}=LN,HN=[...new Set(Sg.map(c=>c.type))];function zN(){const[c,t]=F.useState(0),[e,s]=F.useState(null),[r,l]=F.useState(0),[u,d]=F.useState(null),[f,g]=F.useState(null),m=Sg[c],b=v=>{e||(s(v),v===m.type?(d(v),l(A=>A+1),setTimeout(()=>{t(A=>(A+1)%Sg.length),s(null),d(null),g(null)},1500)):(g(v),d(m.type),setTimeout(()=>{t(A=>(A+1)%Sg.length),s(null),d(null),g(null)},1500)))};return et.jsxs(DN,{children:[et.jsx(ON,{children:"משחק המשקאות"}),et.jsxs(FN,{children:["ניקוד: ",r]}),et.jsxs(kN,{children:[m.hebrewName," - ",m.englishName]}),et.jsx(NN,{children:HN.map(v=>et.jsx(PN,{onClick:()=>b(v),disabled:e!==null,isCorrect:v===m.type&&e!==null,isWrong:e===v&&v!==m.type,children:v},v))})]})}const IN="/Barman/assets/Fernet-Branca-DCT2iXc0.png",UN=Pt.div`
   position: fixed;
   top: 0;
   left: 0;
