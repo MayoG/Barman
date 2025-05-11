@@ -119,6 +119,21 @@
       "social": {
         "instagram": "https://www.instagram.com/p/DHJLvKviPea?img_index=1"
       }
+    },
+    {
+      "id": 9,
+      "name": "גיא מאיו ???",
+      "date": "אפריל 2025",
+      "description": "אתר המציג את כלל המנצחים בתחרות הפרנט ברנקה",
+      "media": [
+        {
+          "type": "image",
+          "url": "./winners/apr-25-1.png"
+        }
+      ],
+      "social": {
+        "instagram": "https://www.instagram.com/guy_mayo/"
+      }
     }
   ]
 } 
