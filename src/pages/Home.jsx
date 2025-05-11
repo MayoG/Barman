@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaTiktok, FaLinkedin } from 'react-icons/fa';
 import { useState } from 'react';
 import YouTube from 'react-youtube';
 import winnersData from '../data/winners.json';
@@ -97,17 +97,35 @@ const FeatureDescription = styled.p`
 `;
 
 const WinnersSection = styled.section`
-  padding: 2rem 0;
+  padding: 10rem 0;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 `;
 
 const WinnersTitle = styled.h2`
   color: #d4af37;
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+`;
+
+const WinnersSubtitle = styled.h3`
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
 `;
 
 const WinnersGrid = styled.div`
@@ -244,6 +262,50 @@ const ZoomedImage = styled.img`
   cursor: zoom-out;
 `;
 
+const StorySection = styled.section`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+`;
+
+const StoryTitle = styled.h2`
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+`;
+
+const StoryContent = styled.div`
+  background: rgba(10, 10, 10, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+`;
+
+const StoryParagraph = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: right;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
 function Home() {
   const [zoomedImage, setZoomedImage] = useState(null);
 
@@ -272,29 +334,46 @@ function Home() {
           חוו את המורשת העשירה והטעם הייחודי של האמארו האיטלקי האייקוני ביותר
         </Subtitle>
       </Hero>
+
+      <StorySection>
+        <StoryTitle>הסיפור שלנו</StoryTitle>
+        <StoryContent>
+          <StoryParagraph>
+            פרנט ברנקה נולד בשנת 1845 במילאנו, איטליה, כאשר ברנרדינו ברנקה יצר את המתכון הסודי הראשון. המתכון המקורי, שעובר מדור לדור, משלב 27 עשבי תיבול ותבלינים מארבע יבשות שונות, כולל מור, קמומיל, רוזמרי, כורכום, וספיגנום.
+          </StoryParagraph>
+          <StoryParagraph>
+            המשקה, שהיה במקור תרופה, הפך במהרה לסמל של תרבות האוכל והשתייה האיטלקית. הוא נחשב לאחד האמארו המסורתיים החשובים ביותר, עם טעם מריר-מתוק מורכב שמשלב עשבי תיבול, תבלינים, וסוכר.
+          </StoryParagraph>
+          <StoryParagraph>
+            כיום, פרנט ברנקה הוא לא רק משקה, אלא חלק בלתי נפרד מהמורשת האיטלקית. הוא מוגש בבתי קפה, מסעדות, ובתים ברחבי העולם, ומשמש כבסיס למגוון קוקטיילים קלאסיים ומודרניים כאחד.
+          </StoryParagraph>
+        </StoryContent>
+      </StorySection>
+
       <Features>
         <FeatureCard>
           <FeatureTitle>מורשת</FeatureTitle>
           <FeatureDescription>
-            מיוצר מאז 1845, המתכון הסודי שלנו משלב 27 עשבי תיבול ותבלינים מארבע יבשות
+            מאז 1845, על פי מתכון סודי העובד מדור לדור – שילוב מרתק של 27 עשבי תיבול ותבלינים מארבע יבשות
           </FeatureDescription>
         </FeatureCard>
         <FeatureCard>
           <FeatureTitle>מסורת</FeatureTitle>
           <FeatureDescription>
-            סמל לאומנות איטלקית ומסירות לאיכות
+            מסורת איטלקית של דיוק, אומנות וחתירה לאיכות בלתי מתפשרת
           </FeatureDescription>
         </FeatureCard>
         <FeatureCard>
           <FeatureTitle>חוויה</FeatureTitle>
           <FeatureDescription>
-            גלו את האיזון המושלם בין מריר ומתוק בכל לגימה
+            טעם עז, איזון מושלם בין מרירות לעדינות – חוויה בלתי נשכחת בכל לגימה
           </FeatureDescription>
         </FeatureCard>
       </Features>
 
       <WinnersSection>
-        <WinnersTitle>זוכי תחרות פרנה ברנקה</WinnersTitle>
+        <WinnersTitle>זוכי תחרות פרנט ברנקה</WinnersTitle>
+        <WinnersSubtitle>גלריית הזוכים המרשימים שלנו לאורך השנים</WinnersSubtitle>
         <WinnersGrid>
           {sortedWinners.map((winner) => (
             <WinnerCard key={winner.id}>
@@ -364,6 +443,11 @@ function Home() {
                   {winner.social.tiktok && (
                     <SocialLink href={winner.social.tiktok} target="_blank" rel="noopener noreferrer">
                       <FaTiktok />
+                    </SocialLink>
+                  )}
+                  {winner.social.linkedin && (
+                    <SocialLink href={winner.social.linkedin} target="_blank" rel="noopener noreferrer">
+                      <FaLinkedin />
                     </SocialLink>
                   )}
                 </SocialLinks>
