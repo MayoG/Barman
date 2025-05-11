@@ -1,0 +1,124 @@
+{
+  "winners": [
+    {
+      "id": 1,
+      "name": "מיקה ערמון",
+      "date": "יולי 2024",
+      "description": "משחקי שתייה ממותגים פרנט ברנקה",
+      "media": [
+        {
+          "type": "image",
+          "url": "./winners/jul-24-1.jpg"
+        }
+      ],
+      "social": {
+        "instagram": "https://instagram.com/MIKAAR_"
+      }
+    },
+    {
+      "id": 2,
+      "name": "יערה בן יעקוב",
+      "date": "אוגוסט 2024",
+      "description": "לוחות עץ בצריבה של הדומו דה מילאנו ולוגו של פרנט ברנקה",
+      "media": [
+        {
+          "type": "image",
+          "url": "./winners/aug-24-1.jpg"
+        }
+      ],
+      "social": {
+        "instagram": "https://instagram.com/NiCO_BEN_JAKOB"
+      }
+    },
+    {
+      "id": 3,
+      "name": "דפנה לוקאץ",
+      "date": "ספטמבר 2024",
+      "description": "פרסומת לפרנט ברנקה",
+      "media": [
+        {
+          "type": "video",
+          "url": "./winners/sep-24-1.mp4"
+        }
+      ],
+      "social": {
+        "instagram": "https://www.instagram.com/p/C_ugxjTtRiR"
+      }
+    },
+    {
+      "id": 4,
+      "name": "איתי אייל",
+      "date": "אוקטובר 2024",
+      "description": "סרט קצר",
+      "media": [
+        {
+          "type": "youtube",
+          "url": "https://www.youtube.com/watch?v=xrHlsqfLlHE"
+        }
+      ],
+      "social": {
+        "instagram": "https://instagram.com/itayeyal_"
+      }
+    },
+    {
+      "id": 5,
+      "name": "זהבה",
+      "date": "נובמבר 2024",
+      "description": "סרט",
+      "media": [
+      ],
+      "social": {
+        "instagram": "https://instagram.com/w.zehava_takele"
+      }
+    },
+    {
+      "id": 6,
+      "name": "עמית פסכה",
+      "date": "ינואר 2025",
+      "description": "שורשים ירוקים בלב הלוחם",
+      "media": [
+        {
+          "type": "image",
+          "url": "./winners/jan-25-1.jpg"
+        }
+      ],
+      "social": {
+        "instagram": "https://instagram.com/amit_pasca"
+      }
+    },
+    {
+      "id": 7,
+      "name": "עידן",
+      "date": "פברואר 2025",
+      "description": "קיר טיפוס עם אחיזות פרנט ברנקה",
+      "media": [
+        {
+          "type": "image",
+          "url": "./winners/feb-25-1.png"
+        },
+        {
+          "type": "image",
+          "url": "./winners/feb-25-2.png"
+        }
+      ],
+      "social": {
+        "instagram": "https://www.instagram.com/p/DGItPZQt1iR"
+      }
+    },
+    {
+      "id": 8,
+      "name": "מאי רז",
+      "date": "מרץ 2025",
+      "description": "קלפי משחק בעיצוב פרנט ברנקה",
+      "media": [
+        {
+          "type": "image",
+          "url": "./winners/mar-25-1.webp"
+        }
+      ],
+      "social": {
+        "instagram": "https://www.instagram.com/p/DHJLvKviPea?img_index=1"
+      }
+    }
+  ]
+} 
