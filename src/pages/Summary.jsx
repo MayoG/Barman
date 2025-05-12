@@ -36,7 +36,6 @@ const PDFContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  flex: 1;
   width: 35%;
   max-width: 35%;
   overflow: hidden;
@@ -46,18 +45,25 @@ const PDFContainer = styled.div`
     width: 95%;
     max-width: 95%;
     min-height: 500px;
+    height: auto;
   }
 `;
 
 const PDFWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
   height: 100%;
   flex: 1;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    justify-content: flex-start;
+    height: auto;
+  }
 `;
 
 const PageWrapper = styled.div`
@@ -77,8 +83,9 @@ const PageWrapper = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
-    height: 600px;
+    height: 450px;
     min-width: 280px;
+    flex: 0;
   }
 `;
 
@@ -233,7 +240,7 @@ const MemoizedPage = memo(({ pageNumber, scale }) => (
       scale={scale}
       loading={<LoadingPlaceholder>טוען עמוד...</LoadingPlaceholder>}
       error={<ErrorMessage>שגיאה בטעינת העמוד</ErrorMessage>}
-      width={window.innerWidth > 1200 ? 800 : window.innerWidth - 200}
+      width={window.innerWidth > 1200 ? 800 : window.innerWidth}
     />
   </PageWrapper>
 ));
