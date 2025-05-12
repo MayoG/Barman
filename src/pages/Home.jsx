@@ -178,6 +178,42 @@ const WinnerMedia = styled.div`
     padding: 0;
     margin: 0 -1rem 2rem -1rem;
     width: calc(100% + 2rem);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.7));
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &::before {
+      content: '←';
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #d4af37;
+      font-size: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    &.has-more::after,
+    &.has-more::before {
+      opacity: 1;
+    }
+
+    &.has-more:hover::before {
+      transform: translateY(-50%) translateX(-5px);
+    }
   }
 
   img {
@@ -412,7 +448,7 @@ function Home() {
         <WinnersGrid>
           {sortedWinners.map((winner) => (
             <WinnerCard key={winner.id}>
-              <WinnerMedia>
+              <WinnerMedia className={winner.media.length > 1 ? 'has-more' : ''}>
                 {winner.media.map((item, index) => {
                   if (item.type === "image") {
                     return (
