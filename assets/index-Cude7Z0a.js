@@ -599,6 +599,8 @@ Please change the parent <Route path="${D}"> to <Route path="${D==="/"?"*":`${D}
   text-align: center;
   font-size: 2.5rem;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  position: relative;
+  z-index: 2;
 `,PP=ht.div`
   background: rgba(10, 10, 10, 0.5);
   padding: 2rem;
