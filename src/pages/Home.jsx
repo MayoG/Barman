@@ -160,10 +160,25 @@ const WinnerMedia = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    padding: 0;
+    margin: 0 -1rem 2rem -1rem;
+    width: calc(100% + 2rem);
+  }
 
   img {
     width: 100%;
@@ -171,6 +186,13 @@ const WinnerMedia = styled.div`
     object-fit: contain;
     padding: 1rem;
     transition: transform 0.3s ease;
+
+    @media (max-width: 768px) {
+      scroll-snap-align: center;
+      flex: 0 0 100%;
+      min-width: 100%;
+      padding: 1rem;
+    }
   }
 
   video {
@@ -178,6 +200,13 @@ const WinnerMedia = styled.div`
     height: 100%;
     object-fit: contain;
     padding: 1rem;
+
+    @media (max-width: 768px) {
+      scroll-snap-align: center;
+      flex: 0 0 100%;
+      min-width: 100%;
+      padding: 1rem;
+    }
   }
 
   .youtube-container {
@@ -188,6 +217,12 @@ const WinnerMedia = styled.div`
     justify-content: center;
     padding: 0;
     background: #000;
+
+    @media (max-width: 768px) {
+      scroll-snap-align: center;
+      flex: 0 0 100%;
+      min-width: 100%;
+    }
 
     iframe {
       width: 100% !important;
