@@ -41,6 +41,12 @@ const PDFContainer = styled.div`
   max-width: 35%;
   overflow: hidden;
   min-height: 600px;
+
+  @media (max-width: 768px) {
+    width: 95%;
+    max-width: 95%;
+    min-height: 500px;
+  }
 `;
 
 const PDFWrapper = styled.div`
@@ -64,10 +70,30 @@ const PageWrapper = styled.div`
   padding: 0.5rem;
   max-width: 100%;
   overflow: hidden;
-  min-height: 500px;
+  height: 800px;
   min-width: 350px;
   width: 100%;
   flex: 1;
+  position: relative;
+
+  @media (max-width: 768px) {
+    height: 600px;
+    min-width: 280px;
+  }
+`;
+
+const LoadingPlaceholder = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: #d4af37;
+  font-size: 1.2rem;
 `;
 
 const ErrorMessage = styled.div`
@@ -87,6 +113,11 @@ const Controls = styled.div`
   width: 100%;
   padding: 0.5rem 0;
   position: relative;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 `;
 
 const Button = styled.button`
@@ -106,12 +137,24 @@ const Button = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  @media (max-width: 768px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const PageSelector = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const PageInput = styled.input`
@@ -139,6 +182,11 @@ const PageInput = styled.input`
   /* Firefox */
   &[type=number] {
     -moz-appearance: textfield;
+  }
+
+  @media (max-width: 768px) {
+    width: 50px;
+    padding: 0.4rem;
   }
 `;
 
@@ -168,6 +216,11 @@ const DownloadButton = styled(Button)`
     width: 20px;
     height: 20px;
   }
+
+  @media (max-width: 768px) {
+    position: relative;
+    right: auto;
+  }
 `;
 
 // Memoized Page component to prevent unnecessary re-renders
@@ -178,7 +231,7 @@ const MemoizedPage = memo(({ pageNumber, scale }) => (
       renderTextLayer={true}
       renderAnnotationLayer={true}
       scale={scale}
-      loading={<div>טוען עמוד...</div>}
+      loading={<LoadingPlaceholder>טוען עמוד...</LoadingPlaceholder>}
       error={<ErrorMessage>שגיאה בטעינת העמוד</ErrorMessage>}
       width={window.innerWidth > 1200 ? 800 : window.innerWidth - 200}
     />
