@@ -21,10 +21,7 @@ const Nav = styled.nav`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+  position: relative;
   z-index: 1000;
 `;
 
