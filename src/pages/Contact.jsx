@@ -21,6 +21,8 @@ const Title = styled.h1`
   text-align: center;
   font-size: 2.5rem;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  position: relative;
+  z-index: 2;
 `;
 
 const ContactCard = styled.div`
