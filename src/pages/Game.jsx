@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useState, useCallback, memo, useMemo } from 'react';
+import { useState, useCallback, memo, useMemo, useEffect } from 'react';
 import drinksData from '../data/drinks.json';
 
 const GameContainer = styled.div`
@@ -47,6 +47,15 @@ const DrinkName = styled.div`
       transform: translateY(0);
     }
   }
+`;
+
+const DrinkNote = styled.div`
+  font-size: 1.2rem;
+  color: #d4af37;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.9;
 `;
 
 const OptionsContainer = styled.div`
@@ -108,14 +117,30 @@ const Score = styled.div`
 const { drinks } = drinksData;
 const options = [...new Set(drinks.map(drink => drink.type))];
 
+// Fisher-Yates shuffle algorithm
+const shuffleArray = (array) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
 function Game() {
+  const [shuffledDrinks, setShuffledDrinks] = useState([]);
   const [currentDrinkIndex, setCurrentDrinkIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [score, setScore] = useState(0);
   const [isCorrect, setIsCorrect] = useState(null);
   const [isWrong, setIsWrong] = useState(null);
 
-  const currentDrink = drinks[currentDrinkIndex];
+  // Shuffle drinks when component mounts
+  useEffect(() => {
+    setShuffledDrinks(shuffleArray(drinks));
+  }, []);
+
+  const currentDrink = shuffledDrinks[currentDrinkIndex];
 
   const handleOptionClick = (option) => {
     if (selectedOption) return; // Prevent multiple selections
@@ -125,7 +150,7 @@ function Game() {
       setIsCorrect(option);
       setScore(prev => prev + 1);
       setTimeout(() => {
-        setCurrentDrinkIndex(prev => (prev + 1) % drinks.length);
+        setCurrentDrinkIndex(prev => (prev + 1) % shuffledDrinks.length);
         setSelectedOption(null);
         setIsCorrect(null);
         setIsWrong(null);
@@ -134,7 +159,7 @@ function Game() {
       setIsWrong(option);
       setIsCorrect(currentDrink.type);
       setTimeout(() => {
-        setCurrentDrinkIndex(prev => (prev + 1) % drinks.length);
+        setCurrentDrinkIndex(prev => (prev + 1) % shuffledDrinks.length);
         setSelectedOption(null);
         setIsCorrect(null);
         setIsWrong(null);
@@ -142,24 +167,52 @@ function Game() {
     }
   };
 
+  // Reset game and reshuffle drinks
+  const resetGame = useCallback(() => {
+    setShuffledDrinks(shuffleArray(drinks));
+    setCurrentDrinkIndex(0);
+    setScore(0);
+    setSelectedOption(null);
+    setIsCorrect(null);
+    setIsWrong(null);
+  }, []);
+
+  // Add reset button when all drinks have been shown
+  const showResetButton = currentDrinkIndex === shuffledDrinks.length - 1;
+
   return (
     <GameContainer>
       <Title>משחק המשקאות</Title>
       <Score>ניקוד: {score}</Score>
-      <DrinkName>{currentDrink.hebrewName} - {currentDrink.englishName}</DrinkName>
-      <OptionsContainer>
-        {options.map((option) => (
-          <OptionButton
-            key={option}
-            onClick={() => handleOptionClick(option)}
-            disabled={selectedOption !== null}
-            isCorrect={option === currentDrink.type && selectedOption !== null}
-            isWrong={selectedOption === option && option !== currentDrink.type}
-          >
-            {option}
-          </OptionButton>
-        ))}
-      </OptionsContainer>
+      {currentDrink && (
+        <>
+          <DrinkName>
+            {currentDrink.hebrewName} - {currentDrink.englishName}
+            {currentDrink.note && <DrinkNote>{currentDrink.note}</DrinkNote>}
+          </DrinkName>
+          <OptionsContainer>
+            {options.map((option) => (
+              <OptionButton
+                key={option}
+                onClick={() => handleOptionClick(option)}
+                disabled={selectedOption !== null}
+                isCorrect={option === currentDrink.type && selectedOption !== null}
+                isWrong={selectedOption === option && option !== currentDrink.type}
+              >
+                {option}
+              </OptionButton>
+            ))}
+          </OptionsContainer>
+        </>
+      )}
+      {showResetButton && (
+        <OptionButton
+          onClick={resetGame}
+          style={{ marginTop: '2rem' }}
+        >
+          התחל משחק חדש
+        </OptionButton>
+      )}
     </GameContainer>
   );
 }
