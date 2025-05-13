@@ -222,6 +222,8 @@ const WinnerMedia = styled.div`
     object-fit: contain;
     padding: 1rem;
     transition: transform 0.3s ease;
+    opacity: ${props => props.isLoaded ? 1 : 0};
+    transition: opacity 0.3s ease;
 
     @media (max-width: 768px) {
       scroll-snap-align: center;
@@ -379,6 +381,7 @@ const StoryParagraph = styled.p`
 
 function Home() {
   const [zoomedImage, setZoomedImage] = useState(null);
+  const [loadedImages, setLoadedImages] = useState({});
 
   const handleImageClick = (winnerId, imageUrl) => {
     setZoomedImage(zoomedImage === winnerId ? null : { id: winnerId, url: imageUrl });
@@ -392,6 +395,13 @@ function Home() {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const handleImageLoad = (winnerId) => {
+    setLoadedImages(prev => ({
+      ...prev,
+      [winnerId]: true
+    }));
   };
 
   // Sort winners by ID in descending order
@@ -448,7 +458,7 @@ function Home() {
         <WinnersGrid>
           {sortedWinners.map((winner) => (
             <WinnerCard key={winner.id}>
-              <WinnerMedia className={winner.media.length > 1 ? 'has-more' : ''}>
+              <WinnerMedia className={winner.media.length > 1 ? 'has-more' : ''} isLoaded={loadedImages[winner.id]}>
                 {winner.media.map((item, index) => {
                   if (item.type === "image") {
                     return (
@@ -458,6 +468,8 @@ function Home() {
                         alt={`${winner.name}'s creation`}
                         style={{ cursor: 'zoom-in' }}
                         onClick={() => handleImageClick(winner.id, item.url)}
+                        loading="lazy"
+                        onLoad={() => handleImageLoad(winner.id)}
                       />
                     );
                   } else if (item.type === "video") {
@@ -466,6 +478,7 @@ function Home() {
                         key={index} 
                         src={item.url} 
                         controls 
+                        loading="lazy"
                       />
                     );
                   } else if (item.type === "youtube") {

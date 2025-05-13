@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import backgroundImage from '../assets/Fernet-Branca.png';
+import { useState, useEffect } from 'react';
 
 const PatternContainer = styled.div`
   position: fixed;
@@ -8,11 +9,13 @@ const PatternContainer = styled.div`
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-image: url(${backgroundImage});
+  background-image: url(${props => props.isLoaded ? backgroundImage : props.placeholder});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: ${props => props.isLoaded ? 1 : 0.5};
 `;
 
 const GradientOverlay = styled.div`
@@ -46,9 +49,18 @@ const AccentOverlay = styled.div`
 `;
 
 export default function BackgroundPattern() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [placeholder] = useState('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyYTI5MjkiLz48L3N2Zz4=');
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgroundImage;
+    img.onload = () => setIsLoaded(true);
+  }, []);
+
   return (
     <>
-      <PatternContainer />
+      <PatternContainer isLoaded={isLoaded} placeholder={placeholder} />
       <GradientOverlay />
       <AccentOverlay />
     </>
