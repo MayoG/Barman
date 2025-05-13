@@ -2,7 +2,7 @@
   "name": "barman",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://MayoG.github.io/Barman",
+  "homepage": "https://www.ilovefernetbranca.com",
   "type": "module",
   "scripts": {
     "dev": "vite",
