@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import backgroundImage from '../assets/Fernet-Branca.png';
+import backgroundImage from '../assets/Fernet-Branca.webp';
 import { useState, useEffect } from 'react';
 
 const PatternContainer = styled.div`
