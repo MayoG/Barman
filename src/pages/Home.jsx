@@ -59,6 +59,31 @@ const Subtitle = styled.p`
   line-height: 1.6;
 `;
 
+const InstagramLinks = styled.div`
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+`;
+
+const InstagramLink = styled.a`
+  color: #d4af37;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  svg {
+    font-size: 1.4rem;
+  }
+`;
+
 const Features = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -414,6 +439,16 @@ function Home() {
         <Subtitle>
           חוו את המורשת העשירה והטעם הייחודי של האמארו האיטלקי האייקוני ביותר
         </Subtitle>
+        <InstagramLinks>
+          <InstagramLink href="https://instagram.com/the.scottish" target="_blank" rel="noopener noreferrer">
+            <FaInstagram />
+            the.scottish
+          </InstagramLink>
+          <InstagramLink href="https://instagram.com/zmanamiti" target="_blank" rel="noopener noreferrer">
+            <FaInstagram />
+            zmanamiti
+          </InstagramLink>
+        </InstagramLinks>
       </Hero>
 
       <StorySection>
