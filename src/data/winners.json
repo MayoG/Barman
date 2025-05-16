@@ -66,6 +66,10 @@
       "date": "נובמבר 2024",
       "description": "סרט",
       "media": [
+        {
+          "type": "video",
+          "url": "./winners/nov-24-1.mp4"
+        }
       ],
       "social": {
         "instagram": "https://instagram.com/w.zehava_takele"
