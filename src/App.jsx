@@ -23,6 +23,11 @@ const Nav = styled.nav`
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
   position: relative;
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    position: sticky;
+    top: 0;
+  }
 `;
 
 const NavContainer = styled.div`
