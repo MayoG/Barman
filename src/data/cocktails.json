@@ -28,7 +28,7 @@
           "7.5 מ\"ל סירופ סוכר",
           "2 דאש ביטרז אנגוסטורה"
         ],
-        "glassType": "קוקטייל / מרטיני",
+        "glassType": "כוס קוקטייל / מרטיני",
         "garnish": "קליפת תפוז",
         "preparationMethod": "ערבוב",
         "notes": "קוקטייל קלאסי עם איזון בין מתוק למריר",
@@ -38,17 +38,17 @@
       {
         "id": 2,
         "name": "Hanky Panky",
-        "baseSpirit": "ג'ין",
+        "baseSpirit": "לונדון דריי ג'ין",
         "ingredients": [
-          "45 מ\"ל ג'ין",
+          "45 מ\"ל לונדון דריי ג'ין",
           "45 מ\"ל ורמוט מתוק",
           "7.5 מ\"ל פרנט ברנקה"
         ],
-        "glassType": "קוקטייל",
+        "glassType": "כוס קוקטייל",
         "garnish": "טוויסט תפוז",
         "preparationMethod": "ערבוב",
-        "notes": "קוקטייל מרענן ואלגנטי שנולד בלונדון",
-        "flavorProfile": "מאוזן עם סיום מריר",
+        "notes": "קוקטייל אלגנטי שנוצר בלונדון בתחילת המאה ה־20 על ידי הברמנית עדה קולמן – שילוב ייחודי של עשבוניות ומתיקות עם נגיעה מרירה",
+        "flavorProfile": "מאוזן, עשבוני, עם סיומת מנטולית-מרירה",
         "image": "Cocktails/hanky_panky.jpg"
       },
       {
@@ -61,7 +61,7 @@
         ],
         "glassType": "היי-בול",
         "garnish": "אין",
-        "preparationMethod": "מזיגה ישירה",
+        "preparationMethod": "בנייה",
         "notes": "הקוקטייל הלאומי של ארגנטינה",
         "flavorProfile": "מתיקות הקולה מאזנת את המרירות",
         "image": "Cocktails/fernet_coca.jpg"
@@ -69,9 +69,9 @@
       {
         "id": 4,
         "name": "Midnight Marauder",
-        "baseSpirit": "רום כהה",
+        "baseSpirit": "רום מיושן",
         "ingredients": [
-          "45 מ\"ל רום כהה",
+          "45 מ\"ל רום מיושן",
           "15 מ\"ל פרנט ברנקה",
           "15 מ\"ל מיץ ליים",
           "15 מ\"ל סירופ סוכר",
@@ -79,7 +79,7 @@
         ],
         "glassType": "לואו-בול",
         "garnish": "קליפת ליים או נענע",
-        "preparationMethod": "שקשוק",
+        "preparationMethod": "ניעור",
         "notes": "קוקטייל מודרני עם עומק ומרירות",
         "flavorProfile": "שילוב של חמיצות, מתיקות ומרירות",
         "image": "Cocktails/midnight_marauder.webp"
