@@ -14,7 +14,11 @@ const CocktailsContainer = styled.div`
 const Title = styled.h1`
   text-align: center;
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: #d4af37;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
 `;
 
 const CocktailsGrid = styled.div`
@@ -33,13 +37,14 @@ const CocktailCard = styled.div`
   position: relative;
   z-index: 1;
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   display: flex;
   flex-direction: row;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.4);
   }
 
   @media (max-width: 768px) {
@@ -93,7 +98,7 @@ const DetailItem = styled.div`
   color: #ffffff;
 
   strong {
-    color: #646cff;
+    color: #d4af37;
     margin-right: 0.5rem;
     display: block;
     margin-bottom: 0.25rem;
@@ -116,18 +121,23 @@ const DetailItem = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  color: #ffffff;
+  color: #d4af37;
   margin: 2rem 0 1rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: right;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 `;
 
 const SectionDescription = styled.p`
   color: #ffffff;
   margin-bottom: 2rem;
   text-align: right;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   opacity: 0.9;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 `;
 
 const Cocktails = () => {
