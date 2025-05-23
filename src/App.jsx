@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Summary from './pages/Summary';
 import Contact from './pages/Contact';
 import Game from './pages/Game';
+import Cocktails from './pages/Cocktails';
 import BackgroundPattern from './components/BackgroundPattern';
 
 const AppContainer = styled.div`
@@ -163,6 +164,7 @@ function App() {
               <StyledLink to="/" onClick={closeMenu}>בית</StyledLink>
               <StyledLink to="/summary" onClick={closeMenu}>סיכום</StyledLink>
               <StyledLink to="/game" onClick={closeMenu}>משחק</StyledLink>
+              <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
               <StyledLink to="/contact" onClick={closeMenu}>צור קשר</StyledLink>
             </NavLinks>
             <HamburgerButton onClick={toggleMenu}>
@@ -175,12 +177,14 @@ function App() {
           <StyledLink to="/" onClick={closeMenu}>בית</StyledLink>
           <StyledLink to="/summary" onClick={closeMenu}>סיכום</StyledLink>
           <StyledLink to="/game" onClick={closeMenu}>משחק</StyledLink>
+          <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
           <StyledLink to="/contact" onClick={closeMenu}>צור קשר</StyledLink>
         </MobileMenu>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/summary" element={<Summary />} />
           <Route path="/game" element={<Game />} />
+          <Route path="/cocktails" element={<Cocktails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AppContainer>
