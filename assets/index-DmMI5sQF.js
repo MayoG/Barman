@@ -812,6 +812,13 @@ Please change the parent <Route path="${L}"> to <Route path="${L==="/"?"*":`${L}
     height: 200px;
     min-height: auto;
     order: 1;
+    position: relative;
+
+    img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
   }
 `,UE=st.div`
   padding: 1.5rem;
@@ -820,6 +827,7 @@ Please change the parent <Route path="${L}"> to <Route path="${L==="/"?"*":`${L}
 
   @media (max-width: 768px) {
     order: 2;
+    width: 100%;
   }
 
   h2 {
