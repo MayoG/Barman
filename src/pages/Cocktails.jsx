@@ -305,7 +305,7 @@ const Cocktails = () => {
       
       <SectionTitle>קוקטיילים עם פרנט ברנקה</SectionTitle>
       <SectionDescription>
-        אוסף של קוקטיילים מיוחדים המשלבים את הטעם הייחודי של הפרנט ברנקה
+        אוסף של קוקטיילים מיוחדים המשלבים את הטעם הייחודי של פרנט ברנקה
       </SectionDescription>
       <CocktailsGrid>
         {FernetCocktails.map((cocktail) => (
