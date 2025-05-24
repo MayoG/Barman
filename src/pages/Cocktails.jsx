@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import styled from '@emotion/styled';
 import cocktailsData from '../data/cocktails.json';
 
@@ -140,8 +140,164 @@ const SectionDescription = styled.p`
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 `;
 
+const FilterContainer = styled.div`
+  background-color: rgba(36, 36, 36, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(8px);
+`;
+
+const FilterTitle = styled.h3`
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: right;
+`;
+
+const FilterGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+`;
+
+const FilterSelectWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+const ClearButton = styled.button`
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #d4af37;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+const FilterSelect = styled.select`
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #ffffff;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+
+  &:focus {
+    outline: none;
+    border-color: #d4af37;
+  }
+
+  option {
+    background-color: #242424;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+`;
+
+const FilterLabel = styled.label`
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+`;
+
 const Cocktails = () => {
   const { cocktails, FernetCocktails } = cocktailsData;
+  const [filters, setFilters] = useState({
+    baseSpirit: '',
+    glassType: '',
+    preparationMethod: ''
+  });
+
+  // Get unique values for each filter
+  const filterOptions = useMemo(() => {
+    const options = {
+      baseSpirit: new Set(),
+      glassType: new Set(),
+      preparationMethod: new Set()
+    };
+
+    cocktails.forEach(cocktail => {
+      if (cocktail.baseSpirit) {
+        // Handle both string and array cases for baseSpirit
+        const spirits = Array.isArray(cocktail.baseSpirit) 
+          ? cocktail.baseSpirit 
+          : [cocktail.baseSpirit];
+        spirits.forEach(spirit => options.baseSpirit.add(spirit));
+      }
+      if (cocktail.glassType) options.glassType.add(cocktail.glassType);
+      if (cocktail.preparationMethod) {
+        // Handle both string and array cases for preparationMethod
+        const methods = Array.isArray(cocktail.preparationMethod)
+          ? cocktail.preparationMethod
+          : [cocktail.preparationMethod];
+        methods.forEach(method => options.preparationMethod.add(method));
+      }
+    });
+
+    return {
+      baseSpirit: Array.from(options.baseSpirit).sort(),
+      glassType: Array.from(options.glassType).sort(),
+      preparationMethod: Array.from(options.preparationMethod).sort()
+    };
+  }, [cocktails]);
+
+  // Filter cocktails based on selected filters
+  const filteredCocktails = useMemo(() => {
+    return cocktails.filter(cocktail => {
+      const baseSpiritMatch = !filters.baseSpirit || 
+        (Array.isArray(cocktail.baseSpirit) 
+          ? cocktail.baseSpirit.includes(filters.baseSpirit)
+          : cocktail.baseSpirit === filters.baseSpirit);
+      
+      const preparationMethodMatch = !filters.preparationMethod ||
+        (Array.isArray(cocktail.preparationMethod)
+          ? cocktail.preparationMethod.includes(filters.preparationMethod)
+          : cocktail.preparationMethod === filters.preparationMethod);
+      
+      return (
+        baseSpiritMatch &&
+        (!filters.glassType || cocktail.glassType === filters.glassType) &&
+        preparationMethodMatch
+      );
+    });
+  }, [cocktails, filters]);
+
+  const handleFilterChange = (filterType, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterType]: value
+    }));
+  };
 
   return (
     <CocktailsContainer>
@@ -162,7 +318,11 @@ const Cocktails = () => {
               {cocktail.baseSpirit && (
                 <DetailItem>
                   <strong>אלכוהול בסיסי:</strong>
-                  <span>{cocktail.baseSpirit}</span>
+                  <span>
+                    {Array.isArray(cocktail.baseSpirit) 
+                      ? cocktail.baseSpirit.join(' / ')
+                      : cocktail.baseSpirit}
+                  </span>
                 </DetailItem>
               )}
               {cocktail.ingredients && cocktail.ingredients.length > 0 && (
@@ -190,7 +350,11 @@ const Cocktails = () => {
               {cocktail.preparationMethod && (
                 <DetailItem>
                   <strong>טכניקת הכנה:</strong>
-                  <span>{cocktail.preparationMethod}</span>
+                  <span>
+                    {Array.isArray(cocktail.preparationMethod)
+                      ? cocktail.preparationMethod.join(' + ')
+                      : cocktail.preparationMethod}
+                  </span>
                 </DetailItem>
               )}
               {cocktail.notes && (
@@ -214,8 +378,84 @@ const Cocktails = () => {
       <SectionDescription>
         אוסף של קוקטיילים קלאסיים שנלמדו בקורס
       </SectionDescription>
+
+      <FilterContainer>
+        <FilterTitle>סינון קוקטיילים</FilterTitle>
+        <FilterGrid>
+          <div>
+            <FilterLabel>אלכוהול בסיסי</FilterLabel>
+            <FilterSelectWrapper>
+              <FilterSelect
+                value={filters.baseSpirit}
+                onChange={(e) => handleFilterChange('baseSpirit', e.target.value)}
+              >
+                <option value="">הכל</option>
+                {filterOptions.baseSpirit.map((spirit) => (
+                  <option key={spirit} value={spirit}>
+                    {spirit}
+                  </option>
+                ))}
+              </FilterSelect>
+              {filters.baseSpirit && (
+                <ClearButton onClick={() => handleFilterChange('baseSpirit', '')}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </ClearButton>
+              )}
+            </FilterSelectWrapper>
+          </div>
+          <div>
+            <FilterLabel>סוג כוס</FilterLabel>
+            <FilterSelectWrapper>
+              <FilterSelect
+                value={filters.glassType}
+                onChange={(e) => handleFilterChange('glassType', e.target.value)}
+              >
+                <option value="">הכל</option>
+                {filterOptions.glassType.map((glass) => (
+                  <option key={glass} value={glass}>
+                    {glass}
+                  </option>
+                ))}
+              </FilterSelect>
+              {filters.glassType && (
+                <ClearButton onClick={() => handleFilterChange('glassType', '')}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </ClearButton>
+              )}
+            </FilterSelectWrapper>
+          </div>
+          <div>
+            <FilterLabel>טכניקת הכנה</FilterLabel>
+            <FilterSelectWrapper>
+              <FilterSelect
+                value={filters.preparationMethod}
+                onChange={(e) => handleFilterChange('preparationMethod', e.target.value)}
+              >
+                <option value="">הכל</option>
+                {filterOptions.preparationMethod.map((method) => (
+                  <option key={method} value={method}>
+                    {method}
+                  </option>
+                ))}
+              </FilterSelect>
+              {filters.preparationMethod && (
+                <ClearButton onClick={() => handleFilterChange('preparationMethod', '')}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </ClearButton>
+              )}
+            </FilterSelectWrapper>
+          </div>
+        </FilterGrid>
+      </FilterContainer>
+
       <CocktailsGrid>
-        {cocktails.map((cocktail) => (
+        {filteredCocktails.map((cocktail) => (
           <CocktailCard key={cocktail.id}>
             <CocktailImage>
               <img src={cocktail.image} alt={cocktail.name} />
@@ -225,7 +465,11 @@ const Cocktails = () => {
               {cocktail.baseSpirit && (
                 <DetailItem>
                   <strong>אלכוהול בסיסי:</strong>
-                  <span>{cocktail.baseSpirit}</span>
+                  <span>
+                    {Array.isArray(cocktail.baseSpirit) 
+                      ? cocktail.baseSpirit.join(' / ')
+                      : cocktail.baseSpirit}
+                  </span>
                 </DetailItem>
               )}
               {cocktail.ingredients && cocktail.ingredients.length > 0 && (
@@ -253,7 +497,11 @@ const Cocktails = () => {
               {cocktail.preparationMethod && (
                 <DetailItem>
                   <strong>טכניקת הכנה:</strong>
-                  <span>{cocktail.preparationMethod}</span>
+                  <span>
+                    {Array.isArray(cocktail.preparationMethod)
+                      ? cocktail.preparationMethod.join(' + ')
+                      : cocktail.preparationMethod}
+                  </span>
                 </DetailItem>
               )}
               {cocktail.notes && (
