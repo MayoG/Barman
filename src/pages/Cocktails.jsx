@@ -159,38 +159,52 @@ const Cocktails = () => {
             </CocktailImage>
             <CocktailDetails>
               <h2>{cocktail.name}</h2>
-              <DetailItem>
-                <strong>אלכוהול בסיסי:</strong>
-                <span>{cocktail.baseSpirit}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>רשימת רכיבים:</strong>
-                <ul>
-                  {cocktail.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ul>
-              </DetailItem>
-              <DetailItem>
-                <strong>סוג כוס:</strong>
-                <span>{cocktail.glassType}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>גארניש (קישוט):</strong>
-                <span>{cocktail.garnish}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>טכניקת הכנה:</strong>
-                <span>{cocktail.preparationMethod}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>הערות:</strong>
-                <span>{cocktail.notes}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>טעם:</strong>
-                <span>{cocktail.flavorProfile}</span>
-              </DetailItem>
+              {cocktail.baseSpirit && (
+                <DetailItem>
+                  <strong>אלכוהול בסיסי:</strong>
+                  <span>{cocktail.baseSpirit}</span>
+                </DetailItem>
+              )}
+              {cocktail.ingredients && cocktail.ingredients.length > 0 && (
+                <DetailItem>
+                  <strong>רשימת רכיבים:</strong>
+                  <ul>
+                    {cocktail.ingredients.map((ingredient, index) => (
+                      <li key={index}>{ingredient}</li>
+                    ))}
+                  </ul>
+                </DetailItem>
+              )}
+              {cocktail.glassType && (
+                <DetailItem>
+                  <strong>סוג כוס:</strong>
+                  <span>{cocktail.glassType}</span>
+                </DetailItem>
+              )}
+              {cocktail.garnish && (
+                <DetailItem>
+                  <strong>גארניש (קישוט):</strong>
+                  <span>{cocktail.garnish}</span>
+                </DetailItem>
+              )}
+              {cocktail.preparationMethod && (
+                <DetailItem>
+                  <strong>טכניקת הכנה:</strong>
+                  <span>{cocktail.preparationMethod}</span>
+                </DetailItem>
+              )}
+              {cocktail.notes && (
+                <DetailItem>
+                  <strong>הערות:</strong>
+                  <span>{cocktail.notes}</span>
+                </DetailItem>
+              )}
+              {cocktail.flavorProfile && (
+                <DetailItem>
+                  <strong>טעם:</strong>
+                  <span>{cocktail.flavorProfile}</span>
+                </DetailItem>
+              )}
             </CocktailDetails>
           </CocktailCard>
         ))}
@@ -208,38 +222,52 @@ const Cocktails = () => {
             </CocktailImage>
             <CocktailDetails>
               <h2>{cocktail.name}</h2>
-              <DetailItem>
-                <strong>אלכוהול בסיסי:</strong>
-                <span>{cocktail.baseSpirit}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>רשימת רכיבים:</strong>
-                <ul>
-                  {cocktail.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ul>
-              </DetailItem>
-              <DetailItem>
-                <strong>סוג כוס:</strong>
-                <span>{cocktail.glassType}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>גארניש (קישוט):</strong>
-                <span>{cocktail.garnish}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>טכניקת הכנה:</strong>
-                <span>{cocktail.preparationMethod}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>הערות:</strong>
-                <span>{cocktail.notes}</span>
-              </DetailItem>
-              <DetailItem>
-                <strong>טעם:</strong>
-                <span>{cocktail.flavorProfile}</span>
-              </DetailItem>
+              {cocktail.baseSpirit && (
+                <DetailItem>
+                  <strong>אלכוהול בסיסי:</strong>
+                  <span>{cocktail.baseSpirit}</span>
+                </DetailItem>
+              )}
+              {cocktail.ingredients && cocktail.ingredients.length > 0 && (
+                <DetailItem>
+                  <strong>רשימת רכיבים:</strong>
+                  <ul>
+                    {cocktail.ingredients.map((ingredient, index) => (
+                      <li key={index}>{ingredient}</li>
+                    ))}
+                  </ul>
+                </DetailItem>
+              )}
+              {cocktail.glassType && (
+                <DetailItem>
+                  <strong>סוג כוס:</strong>
+                  <span>{cocktail.glassType}</span>
+                </DetailItem>
+              )}
+              {cocktail.garnish && (
+                <DetailItem>
+                  <strong>גארניש (קישוט):</strong>
+                  <span>{cocktail.garnish}</span>
+                </DetailItem>
+              )}
+              {cocktail.preparationMethod && (
+                <DetailItem>
+                  <strong>טכניקת הכנה:</strong>
+                  <span>{cocktail.preparationMethod}</span>
+                </DetailItem>
+              )}
+              {cocktail.notes && (
+                <DetailItem>
+                  <strong>הערות:</strong>
+                  <span>{cocktail.notes}</span>
+                </DetailItem>
+              )}
+              {cocktail.flavorProfile && (
+                <DetailItem>
+                  <strong>טעם:</strong>
+                  <span>{cocktail.flavorProfile}</span>
+                </DetailItem>
+              )}
             </CocktailDetails>
           </CocktailCard>
         ))}
