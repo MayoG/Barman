@@ -162,9 +162,9 @@ function App() {
             <Logo>פרנט ברנקה</Logo>
             <NavLinks>
               <StyledLink to="/" onClick={closeMenu}>בית</StyledLink>
+              <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
               <StyledLink to="/summary" onClick={closeMenu}>סיכום</StyledLink>
               <StyledLink to="/game" onClick={closeMenu}>משחק</StyledLink>
-              <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
               <StyledLink to="/contact" onClick={closeMenu}>צור קשר</StyledLink>
             </NavLinks>
             <HamburgerButton onClick={toggleMenu}>
@@ -175,9 +175,9 @@ function App() {
         <Overlay isOpen={isMenuOpen} onClick={closeMenu} />
         <MobileMenu isOpen={isMenuOpen}>
           <StyledLink to="/" onClick={closeMenu}>בית</StyledLink>
+          <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
           <StyledLink to="/summary" onClick={closeMenu}>סיכום</StyledLink>
           <StyledLink to="/game" onClick={closeMenu}>משחק</StyledLink>
-          <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
           <StyledLink to="/contact" onClick={closeMenu}>צור קשר</StyledLink>
         </MobileMenu>
         <Routes>
