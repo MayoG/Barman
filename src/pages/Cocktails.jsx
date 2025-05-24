@@ -74,6 +74,13 @@ const CocktailImage = styled.div`
     height: 200px;
     min-height: auto;
     order: 1;
+    position: relative;
+
+    img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
@@ -84,6 +91,7 @@ const CocktailDetails = styled.div`
 
   @media (max-width: 768px) {
     order: 2;
+    width: 100%;
   }
 
   h2 {
