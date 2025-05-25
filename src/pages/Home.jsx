@@ -91,6 +91,40 @@ const Features = styled.div`
   margin-top: 4rem;
 `;
 
+const CoinImage = styled.img`
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  z-index: 1;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+`;
+
+const TopLeftCoin = styled(CoinImage)`
+  top: 10px;
+  left: 10px;
+  transform: rotate(-45deg);
+`;
+
+const TopRightCoin = styled(CoinImage)`
+  top: 10px;
+  right: 10px;
+  transform: rotate(45deg);
+`;
+
+const BottomLeftCoin = styled(CoinImage)`
+  bottom: 10px;
+  left: 10px;
+  transform: rotate(45deg);
+`;
+
+const BottomRightCoin = styled(CoinImage)`
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(-45deg);
+`;
+
 const FeatureCard = styled.div`
   background: rgba(10, 10, 10, 0.8);
   padding: 2rem;
@@ -99,11 +133,18 @@ const FeatureCard = styled.div`
   transition: all 0.3s ease;
   border: 1px solid rgba(212, 175, 55, 0.1);
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     transform: translateY(-5px);
     border-color: rgba(212, 175, 55, 0.3);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+
+    img {
+      opacity: 1;
+      transform: scale(1.1);
+    }
   }
 `;
 
@@ -468,18 +509,30 @@ function Home() {
 
       <Features>
         <FeatureCard>
+          <TopLeftCoin src="/coins/1.webp" alt="Coin decoration" />
+          <TopRightCoin src="/coins/2.webp" alt="Coin decoration" />
+          <BottomLeftCoin src="/coins/3.webp" alt="Coin decoration" />
+          <BottomRightCoin src="/coins/4.webp" alt="Coin decoration" />
           <FeatureTitle>מורשת</FeatureTitle>
           <FeatureDescription>
             מאז 1845, על פי מתכון סודי העובד מדור לדור – שילוב מרתק של 27 עשבי תיבול ותבלינים מארבע יבשות
           </FeatureDescription>
         </FeatureCard>
         <FeatureCard>
+          <TopLeftCoin src="/coins/9.webp" alt="Coin decoration" />
+          <TopRightCoin src="/coins/10.webp" alt="Coin decoration" />
+          <BottomLeftCoin src="/coins/11.webp" alt="Coin decoration" />
+          <BottomRightCoin src="/coins/12.webp" alt="Coin decoration" />
           <FeatureTitle>מסורת</FeatureTitle>
           <FeatureDescription>
             מסורת איטלקית של דיוק, אומנות וחתירה לאיכות בלתי מתפשרת
           </FeatureDescription>
         </FeatureCard>
         <FeatureCard>
+          <TopLeftCoin src="/coins/13.webp" alt="Coin decoration" />
+          <TopRightCoin src="/coins/14.webp" alt="Coin decoration" />
+          <BottomLeftCoin src="/coins/15.webp" alt="Coin decoration" />
+          <BottomRightCoin src="/coins/16.webp" alt="Coin decoration" />
           <FeatureTitle>חוויה</FeatureTitle>
           <FeatureDescription>
             טעם עז, איזון מושלם בין מרירות לעדינות – חוויה בלתי נשכחת בכל לגימה
