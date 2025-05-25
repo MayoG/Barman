@@ -1,6 +1,6 @@
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import Summary from './pages/Summary';
 import Contact from './pages/Contact';
@@ -146,6 +146,16 @@ const Overlay = styled.div`
   z-index: 1000;
 `;
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -184,6 +194,7 @@ function App() {
           <StyledLink to="/game" onClick={closeMenu}>משחק</StyledLink>
           <StyledLink to="/contact" onClick={closeMenu}>צור קשר</StyledLink>
         </MobileMenu>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/summary" element={<Summary />} />
