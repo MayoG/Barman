@@ -43,12 +43,18 @@ const NavContainer = styled.div`
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
   font-size: 1.5rem;
   font-weight: bold;
   color: #d4af37;
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
   position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  
+  &:hover {
+    color: #d4af37;
+  }
   
   &::after {
     content: '';
@@ -173,7 +179,7 @@ function App() {
         <BackgroundPattern />
         <Nav>
           <NavContainer>
-            <Logo>פרנט ברנקה</Logo>
+            <Logo to="/" onClick={closeMenu}>פרנט ברנקה</Logo>
             <NavLinks>
               <StyledLink to="/" onClick={closeMenu}>בית</StyledLink>
               <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
