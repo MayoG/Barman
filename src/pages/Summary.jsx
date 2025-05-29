@@ -101,6 +101,29 @@ const LoadingPlaceholder = styled.div`
   background: white;
   color: #d4af37;
   font-size: 1.2rem;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const LoadingSpinner = styled.div`
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  border-top-color: #d4af37;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+const LoadingText = styled.span`
+  color: #d4af37;
+  font-size: 1.2rem;
+  text-align: center;
 `;
 
 const ErrorMessage = styled.div`
@@ -238,7 +261,12 @@ const MemoizedPage = memo(({ pageNumber, scale }) => (
       renderTextLayer={true}
       renderAnnotationLayer={true}
       scale={scale}
-      loading={<LoadingPlaceholder>טוען עמוד...</LoadingPlaceholder>}
+      loading={
+        <LoadingPlaceholder>
+          <LoadingSpinner />
+          <LoadingText>טוען עמוד...</LoadingText>
+        </LoadingPlaceholder>
+      }
       error={<ErrorMessage>שגיאה בטעינת העמוד</ErrorMessage>}
       width={window.innerWidth > 1200 ? 800 : window.innerWidth}
     />
@@ -342,7 +370,12 @@ function Summary() {
           <Document
             file="./summary.pdf"
             onLoadSuccess={onDocumentLoadSuccess}
-            loading={<div>טוען...</div>}
+            loading={
+              <LoadingPlaceholder>
+                <LoadingSpinner />
+                <LoadingText>טוען מסמך...</LoadingText>
+              </LoadingPlaceholder>
+            }
             error={<ErrorMessage>שגיאה בטעינת המסמך. אנא ודא שהקובץ קיים</ErrorMessage>}
             options={documentOptions}
           >
