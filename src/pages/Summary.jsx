@@ -98,7 +98,7 @@ const LoadingPlaceholder = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: rgba(10, 10, 10, 0.5);
   color: #d4af37;
   font-size: 1.2rem;
   flex-direction: column;
