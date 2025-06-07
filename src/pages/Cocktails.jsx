@@ -360,39 +360,6 @@ const Cocktails = () => {
     test: false
   });
 
-  // Get unique values for each filter
-  const filterOptions = useMemo(() => {
-    const options = {
-      baseSpirit: new Set(),
-      glassType: new Set(),
-      preparationMethod: new Set()
-    };
-
-    cocktails.forEach(cocktail => {
-      if (cocktail.baseSpirit) {
-        // Handle both string and array cases for baseSpirit
-        const spirits = Array.isArray(cocktail.baseSpirit) 
-          ? cocktail.baseSpirit 
-          : [cocktail.baseSpirit];
-        spirits.forEach(spirit => options.baseSpirit.add(spirit));
-      }
-      if (cocktail.glassType) options.glassType.add(cocktail.glassType);
-      if (cocktail.preparationMethod) {
-        // Handle both string and array cases for preparationMethod
-        const methods = Array.isArray(cocktail.preparationMethod)
-          ? cocktail.preparationMethod
-          : [cocktail.preparationMethod];
-        methods.forEach(method => options.preparationMethod.add(method));
-      }
-    });
-
-    return {
-      baseSpirit: Array.from(options.baseSpirit).sort(),
-      glassType: Array.from(options.glassType).sort(),
-      preparationMethod: Array.from(options.preparationMethod).sort()
-    };
-  }, [cocktails]);
-
   // Filter cocktails based on selected filters
   const filteredCocktails = useMemo(() => {
     return cocktails.filter(cocktail => {
@@ -409,17 +376,61 @@ const Cocktails = () => {
           ? cocktail.preparationMethod.includes(filters.preparationMethod)
           : cocktail.preparationMethod === filters.preparationMethod);
       
+      const glassTypeMatch = !filters.glassType ||
+        (Array.isArray(cocktail.glassType)
+          ? cocktail.glassType.includes(filters.glassType)
+          : cocktail.glassType === filters.glassType);
+      
       const testMatch = !filters.test || cocktail.test === true;
       
       return (
         nameMatch &&
         baseSpiritMatch &&
-        (!filters.glassType || cocktail.glassType === filters.glassType) &&
+        glassTypeMatch &&
         preparationMethodMatch &&
         testMatch
       );
     });
   }, [cocktails, filters]);
+
+  // Get unique values for each filter
+  const filterOptions = useMemo(() => {
+    const options = {
+      baseSpirit: new Set(),
+      glassType: new Set(),
+      preparationMethod: new Set()
+    };
+
+    cocktails.forEach(cocktail => {
+      if (cocktail.baseSpirit) {
+        // Handle both string and array cases for baseSpirit
+        const spirits = Array.isArray(cocktail.baseSpirit) 
+          ? cocktail.baseSpirit 
+          : [cocktail.baseSpirit];
+        spirits.forEach(spirit => options.baseSpirit.add(spirit));
+      }
+      if (cocktail.glassType) {
+        // Handle both string and array cases for glassType
+        const glasses = Array.isArray(cocktail.glassType)
+          ? cocktail.glassType
+          : [cocktail.glassType];
+        glasses.forEach(glass => options.glassType.add(glass));
+      }
+      if (cocktail.preparationMethod) {
+        // Handle both string and array cases for preparationMethod
+        const methods = Array.isArray(cocktail.preparationMethod)
+          ? cocktail.preparationMethod
+          : [cocktail.preparationMethod];
+        methods.forEach(method => options.preparationMethod.add(method));
+      }
+    });
+
+    return {
+      baseSpirit: Array.from(options.baseSpirit).sort(),
+      glassType: Array.from(options.glassType).sort(),
+      preparationMethod: Array.from(options.preparationMethod).sort()
+    };
+  }, [cocktails]);
 
   const handleFilterChange = (filterType, value) => {
     setFilters(prev => ({
@@ -484,7 +495,9 @@ const Cocktails = () => {
                   {cocktail.glassType && (
                     <DetailItem>
                       <strong>סוג כוס:</strong>
-                      <span>{cocktail.glassType}</span>
+                      <span>{Array.isArray(cocktail.glassType) 
+                          ? cocktail.glassType.join(' / ')
+                          : cocktail.glassType}</span>
                     </DetailItem>
                   )}
                   {cocktail.garnish && (
@@ -532,12 +545,21 @@ const Cocktails = () => {
             <FilterGrid>
               <div>
                 <FilterLabel>חיפוש לפי שם</FilterLabel>
-                <FilterInput
-                  type="text"
-                  placeholder="הקלד שם קוקטייל..."
-                  value={filters.name}
-                  onChange={(e) => handleFilterChange('name', e.target.value)}
-                />
+                <FilterSelectWrapper>
+                  <FilterInput
+                    type="text"
+                    placeholder="הקלד שם קוקטייל..."
+                    value={filters.name}
+                    onChange={(e) => handleFilterChange('name', e.target.value)}
+                  />
+                  {filters.name && (
+                    <ClearButton onClick={() => handleFilterChange('name', '')}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                      </svg>
+                    </ClearButton>
+                  )}
+                </FilterSelectWrapper>
               </div>
               <div>
                 <FilterLabel>אלכוהול בסיסי</FilterLabel>
@@ -653,7 +675,9 @@ const Cocktails = () => {
                   {cocktail.glassType && (
                     <DetailItem>
                       <strong>סוג כוס:</strong>
-                      <span>{cocktail.glassType}</span>
+                      <span>{Array.isArray(cocktail.glassType) 
+                          ? cocktail.glassType.join(' / ')
+                          : cocktail.glassType}</span>
                     </DetailItem>
                   )}
                   {cocktail.garnish && (
