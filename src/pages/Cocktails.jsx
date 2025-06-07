@@ -281,10 +281,31 @@ const FilterLabel = styled.label`
   font-size: 0.9rem;
 `;
 
+const FilterInput = styled.input`
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #d4af37;
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+`;
+
 const Cocktails = () => {
   const { cocktails, FernetCocktails } = cocktailsData;
   const [activeSection, setActiveSection] = useState('fernet');
   const [filters, setFilters] = useState({
+    name: '',
     baseSpirit: '',
     glassType: '',
     preparationMethod: ''
@@ -326,6 +347,9 @@ const Cocktails = () => {
   // Filter cocktails based on selected filters
   const filteredCocktails = useMemo(() => {
     return cocktails.filter(cocktail => {
+      const nameMatch = !filters.name || 
+        cocktail.name.toLowerCase().includes(filters.name.toLowerCase());
+      
       const baseSpiritMatch = !filters.baseSpirit || 
         (Array.isArray(cocktail.baseSpirit) 
           ? cocktail.baseSpirit.includes(filters.baseSpirit)
@@ -337,6 +361,7 @@ const Cocktails = () => {
           : cocktail.preparationMethod === filters.preparationMethod);
       
       return (
+        nameMatch &&
         baseSpiritMatch &&
         (!filters.glassType || cocktail.glassType === filters.glassType) &&
         preparationMethodMatch
@@ -360,13 +385,13 @@ const Cocktails = () => {
           active={activeSection === 'fernet'} 
           onClick={() => setActiveSection('fernet')}
         >
-          קוקטיילים עם פרנט ברנקה
+          פרנט ברנקה
         </CocktailButton>
         <CocktailButton 
           active={activeSection === 'classic'} 
           onClick={() => setActiveSection('classic')}
         >
-          קוקטיילים קלאסיים
+          קלאסיים
         </CocktailButton>
       </CocktailsSwitcher>
 
@@ -453,6 +478,15 @@ const Cocktails = () => {
           <FilterContainer>
             <FilterTitle>סינון קוקטיילים</FilterTitle>
             <FilterGrid>
+              <div>
+                <FilterLabel>חיפוש לפי שם</FilterLabel>
+                <FilterInput
+                  type="text"
+                  placeholder="הקלד שם קוקטייל..."
+                  value={filters.name}
+                  onChange={(e) => handleFilterChange('name', e.target.value)}
+                />
+              </div>
               <div>
                 <FilterLabel>אלכוהול בסיסי</FilterLabel>
                 <FilterSelectWrapper>
