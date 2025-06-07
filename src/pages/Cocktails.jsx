@@ -301,6 +301,52 @@ const FilterInput = styled.input`
   }
 `;
 
+const FilterCheckbox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:checked {
+      background-color: rgba(212, 175, 55, 0.3);
+      border-color: rgba(212, 175, 55, 0.5);
+
+      &::after {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-size: 14px;
+      }
+    }
+
+    &:hover {
+      border-color: rgba(212, 175, 55, 0.5);
+    }
+  }
+
+  label {
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+  }
+`;
+
 const Cocktails = () => {
   const { cocktails, FernetCocktails } = cocktailsData;
   const [activeSection, setActiveSection] = useState('fernet');
@@ -308,7 +354,8 @@ const Cocktails = () => {
     name: '',
     baseSpirit: '',
     glassType: '',
-    preparationMethod: ''
+    preparationMethod: '',
+    test: false
   });
 
   // Get unique values for each filter
@@ -360,11 +407,14 @@ const Cocktails = () => {
           ? cocktail.preparationMethod.includes(filters.preparationMethod)
           : cocktail.preparationMethod === filters.preparationMethod);
       
+      const testMatch = !filters.test || cocktail.test === true;
+      
       return (
         nameMatch &&
         baseSpiritMatch &&
         (!filters.glassType || cocktail.glassType === filters.glassType) &&
-        preparationMethodMatch
+        preparationMethodMatch &&
+        testMatch
       );
     });
   }, [cocktails, filters]);
@@ -555,6 +605,17 @@ const Cocktails = () => {
                     </ClearButton>
                   )}
                 </FilterSelectWrapper>
+              </div>
+              <div>
+                <FilterCheckbox>
+                  <input
+                    type="checkbox"
+                    id="testFilter"
+                    checked={filters.test}
+                    onChange={(e) => handleFilterChange('test', e.target.checked)}
+                  />
+                  <label htmlFor="testFilter">קוקטיילים למבחן</label>
+                </FilterCheckbox>
               </div>
             </FilterGrid>
           </FilterContainer>

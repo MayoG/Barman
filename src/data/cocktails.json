@@ -2,7 +2,7 @@
   "cocktails": [
     {
         "id": 1,
-        "name": "דאקירי",
+        "name": "דאקירי - Daiquiri",
         "baseSpirit": "רום לבן",
         "ingredients": [
             "60 מ\"ל רום לבן",
@@ -14,11 +14,12 @@
         "preparationMethod": "ניעור",
         "notes": "קלאסיקה על-זמנית מהחוף הקובני – שילוב פשוט אך מדויק שמוכיח שפשטות יכולה להיות מושלמת.",
         "flavorProfile": "חמיצות מודגשת של ליים עם איזון מתיקות קל",
-        "image": "Cocktails/daiquiri.jpg"
+        "image": "Cocktails/daiquiri.jpg",
+        "test": true
     },
     {
         "id": 2,
-        "name": "ויסקי סאוור",
+        "name": "ויסקי סאוור - Whiskey sour",
         "baseSpirit": "ויסקי",
         "ingredients": [
             "60 מ\"ל ויסקי",
@@ -29,7 +30,8 @@
         "preparationMethod": "ניעור",
         "notes": "גרסה קלאסית ממשפחת הסאוור – מאוזן ופשוט להכנה.",
         "flavorProfile": "חמוץ-מתוק קלאסי עם טעמי ויסקי מודגשים",
-        "image": "Cocktails/whiskey_sour.jpg"
+        "image": "Cocktails/whiskey_sour.jpg",
+        "test": true
     },
     {
         "id": 3,
@@ -84,19 +86,20 @@
     },
     {
         "id": 6,
-        "name": "אולד פאשנד",
+        "name": "אולד פאשנד - Old fashioned",
         "baseSpirit": "ויסקי",
         "ingredients": [
             "60 מ\"ל ויסקי",
             "3 דשים אנגוסטורה ביטר",
-            "10–15 מ\"ל סירופ סוכר"
+            "10 מ\"ל סירופ סוכר"
         ],
         "glassType": "לואו-בול",
         "garnish": "טוויסט תפוז",
         "preparationMethod": "ערבוב",
         "notes": "מהקוקטיילים הראשונים בהיסטוריה – פשוט, אלגנטי ומרוכז בטעמי האלכוהול.",
         "flavorProfile": "חזק, מעט מתקתק, ארומטי מהביטר",
-        "image": "Cocktails/old_fashioned.jpg"
+        "image": "Cocktails/old_fashioned.jpg",
+        "test": true
     },
     {
         "id": 7,
@@ -117,7 +120,7 @@
     },
     {
         "id": 8,
-        "name": "מנהטן",
+        "name": "מנהטן - Manhattan",
         "baseSpirit": "ויסקי",
         "ingredients": [
             "60 מ\"ל ויסקי",
@@ -129,11 +132,12 @@
         "preparationMethod": "ערבוב",
         "notes": "קוקטייל נצחי עם שילוב קלאסי של וויסקי ומתיקות מעודנת.",
         "flavorProfile": "מאוזן, עשיר, ארומטי",
-        "image": "Cocktails/manhattan.jpg"
+        "image": "Cocktails/manhattan.jpg",
+        "test": true
     },
     {
         "id": 9,
-        "name": "מרטינז",
+        "name": "מרטינז / מרטינס - Martinez",
         "baseSpirit": "ג׳ין",
         "ingredients": [
             "60 מ\"ל ג׳ין",
@@ -147,7 +151,8 @@
         "preparationMethod": "ערבוב",
         "notes": "הקדם למרטיני – עגול יותר בטעמים עם טאץ' פירותי.",
         "flavorProfile": "מתוק-מריר עם עומק של עשבים ודובדבן",
-        "image": "Cocktails/martinez.jpg"
+        "image": "Cocktails/martinez.jpg",
+        "test": true
     },
     {
         "id": 10,
@@ -167,7 +172,7 @@
     },
     {
         "id": 11,
-        "name": "נגרוני",
+        "name": "נגרוני - Negroni",
         "baseSpirit": "ג׳ין",
         "ingredients": [
             "30 מ\"ל ג׳ין",
@@ -179,7 +184,8 @@
         "preparationMethod": "ערבוב",
         "notes": "אפריטיף איטלקי איקוני עם שילוב מריר, מתוק וארומטי – קוקטייל מאוזן וקלאסי.",
         "flavorProfile": "מריר-מתוק עם ניחוח הדרים",
-        "image": "Cocktails/negroni.jpg"
+        "image": "Cocktails/negroni.jpg",
+        "test": true
     },
     {
         "id": 12,
@@ -199,7 +205,7 @@
     },
     {
         "id": 13,
-        "name": "מרגריטה",
+        "name": "מרגריטה - Margarita",
         "baseSpirit": "טקילה",
         "ingredients": [
             "60 מ\"ל טקילה בלנקו",
@@ -211,7 +217,8 @@
         "preparationMethod": "ניעור",
         "notes": "אחד הקוקטיילים האהובים בעולם – שילוב רענן של חמיצות, מתיקות ומליחות.",
         "flavorProfile": "חמוץ-מלוח עם סיומת פירותית",
-        "image": "Cocktails/margarita.webp"
+        "image": "Cocktails/margarita.webp",
+        "test": true
     },
     {
         "id": 14,
@@ -248,7 +255,7 @@
     },
     {
         "id": 16,
-        "name": "Last Word",
+        "name": "The Last Word - המילה האחרונה",
         "baseSpirit": "ג׳ין",
         "ingredients": [
             "30 מ\"ל ג׳ין",
@@ -260,7 +267,8 @@
         "preparationMethod": "ניעור",
         "notes": "קוקטייל חזק ומורכב עם איזון נדיר בין עשבוניות, חמיצות ומתיקות.",
         "flavorProfile": "מריר-עשבי, חמוץ-מתוק עם סיומת ארוכה",
-        "image": "Cocktails/last_word.jpg"
+        "image": "Cocktails/last_word.jpg",
+        "test": true
     },
     {
       "id": 17,
