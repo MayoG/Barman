@@ -357,6 +357,7 @@ const Cocktails = () => {
     baseSpirit: '',
     glassType: '',
     preparationMethod: '',
+    family: '',
     test: false
   });
 
@@ -381,6 +382,8 @@ const Cocktails = () => {
           ? cocktail.glassType.includes(filters.glassType)
           : cocktail.glassType === filters.glassType);
       
+      const familyMatch = !filters.family || cocktail.family === filters.family;
+      
       const testMatch = !filters.test || cocktail.test === true;
       
       return (
@@ -388,6 +391,7 @@ const Cocktails = () => {
         baseSpiritMatch &&
         glassTypeMatch &&
         preparationMethodMatch &&
+        familyMatch &&
         testMatch
       );
     });
@@ -398,7 +402,8 @@ const Cocktails = () => {
     const options = {
       baseSpirit: new Set(),
       glassType: new Set(),
-      preparationMethod: new Set()
+      preparationMethod: new Set(),
+      family: new Set()
     };
 
     cocktails.forEach(cocktail => {
@@ -423,12 +428,16 @@ const Cocktails = () => {
           : [cocktail.preparationMethod];
         methods.forEach(method => options.preparationMethod.add(method));
       }
+      if (cocktail.family) {
+        options.family.add(cocktail.family);
+      }
     });
 
     return {
       baseSpirit: Array.from(options.baseSpirit).sort(),
       glassType: Array.from(options.glassType).sort(),
-      preparationMethod: Array.from(options.preparationMethod).sort()
+      preparationMethod: Array.from(options.preparationMethod).sort(),
+      family: Array.from(options.family).sort()
     };
   }, [cocktails]);
 
@@ -526,6 +535,12 @@ const Cocktails = () => {
                     <DetailItem>
                       <strong>טעם:</strong>
                       <span>{cocktail.flavorProfile}</span>
+                    </DetailItem>
+                  )}
+                  {cocktail.family && (
+                    <DetailItem>
+                      <strong>משפחה:</strong>
+                      <span>{cocktail.family}</span>
                     </DetailItem>
                   )}
                 </CocktailDetails>
@@ -631,6 +646,29 @@ const Cocktails = () => {
                 </FilterSelectWrapper>
               </div>
               <div>
+                <FilterLabel>משפחה</FilterLabel>
+                <FilterSelectWrapper>
+                  <FilterSelect
+                    value={filters.family}
+                    onChange={(e) => handleFilterChange('family', e.target.value)}
+                  >
+                    <option value="">הכל</option>
+                    {filterOptions.family.map((family) => (
+                      <option key={family} value={family}>
+                        {family}
+                      </option>
+                    ))}
+                  </FilterSelect>
+                  {filters.family && (
+                    <ClearButton onClick={() => handleFilterChange('family', '')}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                      </svg>
+                    </ClearButton>
+                  )}
+                </FilterSelectWrapper>
+              </div>
+              <div>
                 <FilterCheckbox>
                   <input
                     type="checkbox"
@@ -706,6 +744,12 @@ const Cocktails = () => {
                     <DetailItem>
                       <strong>טעם:</strong>
                       <span>{cocktail.flavorProfile}</span>
+                    </DetailItem>
+                  )}
+                  {cocktail.family && (
+                    <DetailItem>
+                      <strong>משפחה:</strong>
+                      <span>{cocktail.family}</span>
                     </DetailItem>
                   )}
                 </CocktailDetails>
