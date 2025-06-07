@@ -305,8 +305,9 @@ const FilterCheckbox = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.5rem;
   cursor: pointer;
+  height: 100%;
+  padding-top: 1.5rem;
 
   input[type="checkbox"] {
     appearance: none;
@@ -344,6 +345,7 @@ const FilterCheckbox = styled.div`
     color: #ffffff;
     cursor: pointer;
     user-select: none;
+    font-size: 1rem;
   }
 `;
 
