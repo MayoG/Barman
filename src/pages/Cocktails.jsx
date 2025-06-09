@@ -349,9 +349,68 @@ const FilterCheckbox = styled.div`
   }
 `;
 
+const InfoIcon = styled.span`
+  cursor: help;
+  position: relative;
+  font-size: 24px;
+  color: #d4af37;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const Tooltip = styled.div`
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background-color: rgba(20, 20, 25, 0.98);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  z-index: 1000;
+  display: ${props => props.show ? 'block' : 'none'};
+  backdrop-filter: blur(8px);
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 6px;
+    position: relative;
+    padding-right: 12px;
+    line-height: 1.4;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:before {
+      content: "•";
+      color: #d4af37;
+      position: absolute;
+      right: 0;
+    }
+  }
+`;
+
+const FamilyContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+
 const Cocktails = () => {
-  const { cocktails, FernetCocktails } = cocktailsData;
+  const { cocktails, FernetCocktails, cocktailFamilies } = cocktailsData;
   const [activeSection, setActiveSection] = useState('fernet');
+  const [hoveredTooltip, setHoveredTooltip] = useState(null);
   const [filters, setFilters] = useState({
     name: '',
     baseSpirit: '',
@@ -540,7 +599,22 @@ const Cocktails = () => {
                   {cocktail.family && (
                     <DetailItem>
                       <strong>משפחה:</strong>
-                      <span>{cocktail.family}</span>
+                      <FamilyContainer>
+                        <InfoIcon 
+                          onMouseEnter={() => setHoveredTooltip(`${cocktail.id}-${cocktail.family}`)}
+                          onMouseLeave={() => setHoveredTooltip(null)}
+                        >
+                          &#9432;
+                        </InfoIcon>
+                        <span>{cocktail.family}</span>
+                        <Tooltip show={hoveredTooltip === `${cocktail.id}-${cocktail.family}`}>
+                          <ul>
+                            {cocktailFamilies[cocktail.family]?.description.map((point, index) => (
+                              <li key={index}>{point}</li>
+                            ))}
+                          </ul>
+                        </Tooltip>
+                      </FamilyContainer>
                     </DetailItem>
                   )}
                 </CocktailDetails>
@@ -749,7 +823,22 @@ const Cocktails = () => {
                   {cocktail.family && (
                     <DetailItem>
                       <strong>משפחה:</strong>
-                      <span>{cocktail.family}</span>
+                      <FamilyContainer>
+                        <InfoIcon 
+                          onMouseEnter={() => setHoveredTooltip(`${cocktail.id}-${cocktail.family}`)}
+                          onMouseLeave={() => setHoveredTooltip(null)}
+                        >
+                          &#9432;
+                        </InfoIcon>
+                        <span>{cocktail.family}</span>
+                        <Tooltip show={hoveredTooltip === `${cocktail.id}-${cocktail.family}`}>
+                          <ul>
+                            {cocktailFamilies[cocktail.family]?.description.map((point, index) => (
+                              <li key={index}>{point}</li>
+                            ))}
+                          </ul>
+                        </Tooltip>
+                      </FamilyContainer>
                     </DetailItem>
                   )}
                 </CocktailDetails>
