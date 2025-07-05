@@ -417,7 +417,8 @@ const Cocktails = () => {
     glassType: '',
     preparationMethod: '',
     family: '',
-    test: false
+    test: false,
+    personalMenu: false
   });
 
   // Filter cocktails based on selected filters
@@ -445,13 +446,16 @@ const Cocktails = () => {
       
       const testMatch = !filters.test || cocktail.test === true;
       
+      const personalMenuMatch = !filters.personalMenu || cocktail.personalMenu === true;
+      
       return (
         nameMatch &&
         baseSpiritMatch &&
         glassTypeMatch &&
         preparationMethodMatch &&
         familyMatch &&
-        testMatch
+        testMatch &&
+        personalMenuMatch
       );
     });
   }, [cocktails, filters]);
@@ -751,6 +755,17 @@ const Cocktails = () => {
                     onChange={(e) => handleFilterChange('test', e.target.checked)}
                   />
                   <label htmlFor="testFilter">קוקטיילים למבחן</label>
+                </FilterCheckbox>
+              </div>
+              <div>
+                <FilterCheckbox>
+                  <input
+                    type="checkbox"
+                    id="personalMenuFilter"
+                    checked={filters.personalMenu}
+                    onChange={(e) => handleFilterChange('personalMenu', e.target.checked)}
+                  />
+                  <label htmlFor="personalMenuFilter">תפריט אישי</label>
                 </FilterCheckbox>
               </div>
             </FilterGrid>

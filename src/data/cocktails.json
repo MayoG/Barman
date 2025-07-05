@@ -32,7 +32,8 @@
         "flavorProfile": "חמוץ-מתוק קלאסי עם טעמי ויסקי מודגשים",
         "image": "Cocktails/whiskey_sour.jpg",
         "test": true,
-        "family": "הסאוור - Sour"
+        "family": "הסאוור - Sour",
+        "personalMenu": true
     },
     {
         "id": 3,
@@ -176,7 +177,8 @@
         "notes": "הדרינק האייקוני שמסמל סטייל וניקיון – מינימליסטי ועוצמתי.",
         "flavorProfile": "יבש, חד, אלגנטי",
         "image": "Cocktails/martini.webp",
-        "family": "מנהטן - Manhattan"
+        "family": "מנהטן - Manhattan",
+        "personalMenu": true
     },
     {
         "id": 11,
@@ -194,7 +196,8 @@
         "flavorProfile": "מריר-מתוק עם ניחוח הדרים",
         "image": "Cocktails/negroni.jpg",
         "test": true,
-        "family": "חלקים שווים - Equal parts"
+        "family": "חלקים שווים - Equal parts",
+        "personalMenu": true
     },
     {
         "id": 12,
@@ -314,6 +317,56 @@
         "notes": "קוקטייל אייקוני משנות ה-40 שנולד בארצות הברית, ונעשה פופולרי הודות לשילוב חריף ומרענן של ג'ינג'ר וליים – מוגש לרוב בכוס נחושת ייחודית.",
         "flavorProfile": "מרענן, חריף-מתקתק עם חמיצות הדרית בולטת",
         "image": "Cocktails/moscow_mule.jpg"
+      },
+      {
+        "id": 19,
+        "name": "מוחיטו - Mojito",
+        "baseSpirit": "רום לבן",
+        "ingredients": [
+            "45 מ\"ל רום לבן",
+            "4 קוביות ליים טרי",
+            "6-7 עלי נענע קטנים",
+            "כפית סוכר",
+            "סודה"
+        ],
+        "glassType": "היי-בול",
+        "garnish": "עלה נענע",
+        "preparationMethod": "בנייה",
+        "notes": "נקח את כל הרכיבים חוץ מהרום והסודה לכוס, נמעך אותם 7-8 פעמים, נוסיף 3/4 קרח מעוך, נוסיף את הרום ונמלא בסודה, נוסיף עוד קרח בסוף אחרי הצפה קלה עם כפית",
+        "flavorProfile": "מרענן ופירותי [קליל, מתוק-חמצמץ]",
+        "image": "Cocktails/mojito.webp",
+        "personalMenu": true
+      },
+      {
+        "id": 20,
+        "name": "אורגזמה - Orgasm",
+        "baseSpirit": "בייליס",
+        "ingredients": [
+            "30 מ\"ל בייליס",
+            "30 מ\"ל קלואה",
+            "30 מ\"ל שמנת מתוקה"
+        ],
+        "glassType": "לואו-בול",
+        "preparationMethod": "ניעור",
+        "flavorProfile": "קרמי ומתוק [קינוחי, קליל]",
+        "image": "Cocktails/orgasm.webp",
+        "family": "חלקים שווים - Equal parts",
+        "personalMenu": true
+      },
+      {
+        "id": 21,
+        "name": "פלומה - Paloma",
+        "baseSpirit": ["טקילה בלנקו", "טקילה רפוסאדו"],
+        "ingredients": [
+            "60 מ\"ל טקילה",
+            "מיץ אשכולית אדומה"
+        ],
+        "glassType": "היי-בול",
+        "garnish": "חצי רים מלח",
+        "preparationMethod": "בנייה",
+        "flavorProfile": "חמצמץ-מריר [רענן, לא מתוק]",
+        "image": "Cocktails/paloma.jpg",
+        "personalMenu": true
       }
   ],
   "FernetCocktails": [
