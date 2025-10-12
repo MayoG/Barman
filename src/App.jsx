@@ -1,12 +1,13 @@
-import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import styled from '@emotion/styled';
-import { useState, useEffect } from 'react';
-import Home from './pages/Home';
-import Summary from './pages/Summary';
-import Contact from './pages/Contact';
-import Game from './pages/Game';
-import Cocktails from './pages/Cocktails';
-import BackgroundPattern from './components/BackgroundPattern';
+import { HashRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import styled from "@emotion/styled";
+import { useState, useEffect } from "react";
+import Home from "./pages/Home";
+import Summary from "./pages/Summary";
+import Contact from "./pages/Contact";
+import Game from "./pages/Game";
+import Cocktails from "./pages/Cocktails";
+import DateCocktails from "./pages/CocktailMenu";
+import BackgroundPattern from "./components/BackgroundPattern";
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -51,13 +52,13 @@ const Logo = styled(Link)`
   position: relative;
   text-decoration: none;
   cursor: pointer;
-  
+
   &:hover {
     color: #d4af37;
   }
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -5px;
     right: 0;
@@ -80,7 +81,7 @@ const MobileMenu = styled.div`
   display: none;
   position: fixed;
   top: 0;
-  right: ${props => props.isOpen ? '0' : '-100%'};
+  right: ${(props) => (props.isOpen ? "0" : "-100%")};
   width: 250px;
   height: 100vh;
   background-color: rgba(10, 10, 10, 0.95);
@@ -121,7 +122,7 @@ const StyledLink = styled(Link)`
   padding: 0.5rem 0;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     right: 0;
@@ -142,7 +143,7 @@ const StyledLink = styled(Link)`
 `;
 
 const Overlay = styled.div`
-  display: ${props => props.isOpen ? 'block' : 'none'};
+  display: ${(props) => (props.isOpen ? "block" : "none")};
   position: fixed;
   top: 0;
   left: 0;
@@ -179,26 +180,52 @@ function App() {
         <BackgroundPattern />
         <Nav>
           <NavContainer>
-            <Logo to="/" onClick={closeMenu}>פרנט ברנקה</Logo>
+            <Logo to="/" onClick={closeMenu}>
+              פרנט ברנקה
+            </Logo>
             <NavLinks>
-              <StyledLink to="/" onClick={closeMenu}>בית</StyledLink>
-              <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
-              <StyledLink to="/game" onClick={closeMenu}>משחק</StyledLink>
-              <StyledLink to="/summary" onClick={closeMenu}>סיכום</StyledLink>
-              <StyledLink to="/contact" onClick={closeMenu}>צור קשר</StyledLink>
+              <StyledLink to="/" onClick={closeMenu}>
+                בית
+              </StyledLink>
+              <StyledLink to="/cocktails" onClick={closeMenu}>
+                קוקטיילים
+              </StyledLink>
+              <StyledLink to="/cocktail-menu" onClick={closeMenu}>
+                תפריט קוקטיילים
+              </StyledLink>
+              <StyledLink to="/game" onClick={closeMenu}>
+                משחק
+              </StyledLink>
+              <StyledLink to="/summary" onClick={closeMenu}>
+                סיכום
+              </StyledLink>
+              <StyledLink to="/contact" onClick={closeMenu}>
+                צור קשר
+              </StyledLink>
             </NavLinks>
-            <HamburgerButton onClick={toggleMenu}>
-              {isMenuOpen ? '✕' : '☰'}
-            </HamburgerButton>
+            <HamburgerButton onClick={toggleMenu}>{isMenuOpen ? "✕" : "☰"}</HamburgerButton>
           </NavContainer>
         </Nav>
         <Overlay isOpen={isMenuOpen} onClick={closeMenu} />
         <MobileMenu isOpen={isMenuOpen}>
-          <StyledLink to="/" onClick={closeMenu}>בית</StyledLink>
-          <StyledLink to="/cocktails" onClick={closeMenu}>קוקטיילים</StyledLink>
-          <StyledLink to="/game" onClick={closeMenu}>משחק</StyledLink>
-          <StyledLink to="/summary" onClick={closeMenu}>סיכום</StyledLink>
-          <StyledLink to="/contact" onClick={closeMenu}>צור קשר</StyledLink>
+          <StyledLink to="/" onClick={closeMenu}>
+            בית
+          </StyledLink>
+          <StyledLink to="/cocktails" onClick={closeMenu}>
+            קוקטיילים
+          </StyledLink>
+          <StyledLink to="/cocktail-menu" onClick={closeMenu}>
+            תפריט קוקטיילים
+          </StyledLink>
+          <StyledLink to="/game" onClick={closeMenu}>
+            משחק
+          </StyledLink>
+          <StyledLink to="/summary" onClick={closeMenu}>
+            סיכום
+          </StyledLink>
+          <StyledLink to="/contact" onClick={closeMenu}>
+            צור קשר
+          </StyledLink>
         </MobileMenu>
         <ScrollToTop />
         <Routes>
@@ -206,6 +233,7 @@ function App() {
           <Route path="/summary" element={<Summary />} />
           <Route path="/game" element={<Game />} />
           <Route path="/cocktails" element={<Cocktails />} />
+          <Route path="/cocktail-menu" element={<DateCocktails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AppContainer>

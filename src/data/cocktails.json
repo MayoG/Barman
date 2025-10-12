@@ -1,300 +1,227 @@
 {
   "cocktails": [
     {
-        "id": 1,
-        "name": "דאקירי - Daiquiri",
-        "baseSpirit": "רום לבן",
-        "ingredients": [
-            "60 מ\"ל רום לבן",
-            "30 מ\"ל מיץ ליים טרי",
-            "15 מ\"ל סירופ סוכר"
-        ],
-        "glassType": "קופ",
-        "preparationMethod": "ניעור",
-        "notes": "קלאסיקה על-זמנית מהחוף הקובני – שילוב פשוט אך מדויק שמוכיח שפשטות יכולה להיות מושלמת.",
-        "flavorProfile": "חמיצות מודגשת של ליים עם איזון מתיקות קל",
-        "image": "Cocktails/daiquiri.jpg",
-        "test": true,
-        "family": "חתוך בחצי - Cut in Half"
+      "id": 1,
+      "name": "דאקירי - Daiquiri",
+      "baseSpirit": "רום לבן",
+      "ingredients": ["60 מ\"ל רום לבן", "30 מ\"ל מיץ ליים טרי", "15 מ\"ל סירופ סוכר"],
+      "glassType": "קופ",
+      "preparationMethod": "ניעור",
+      "notes": "קלאסיקה על-זמנית מהחוף הקובני – שילוב פשוט אך מדויק שמוכיח שפשטות יכולה להיות מושלמת.",
+      "flavorProfile": "חמיצות מודגשת של ליים עם איזון מתיקות קל",
+      "image": "Cocktails/daiquiri.jpg",
+      "test": true,
+      "family": "חתוך בחצי - Cut in Half"
     },
     {
-        "id": 2,
-        "name": "ויסקי סאוור - Whiskey sour",
-        "baseSpirit": "ויסקי",
-        "ingredients": [
-            "60 מ\"ל ויסקי",
-            "30 מ\"ל מיץ לימון",
-            "30 מ\"ל סירופ סוכר"
-        ],
-        "glassType": "לואו-בול",
-        "preparationMethod": "ניעור",
-        "notes": "גרסה קלאסית ממשפחת הסאוור – מאוזן ופשוט להכנה.",
-        "flavorProfile": "חמוץ-מתוק קלאסי עם טעמי ויסקי מודגשים",
-        "image": "Cocktails/whiskey_sour.jpg",
-        "test": true,
-        "family": "הסאוור - Sour",
-        "personalMenu": true
+      "id": 2,
+      "name": "ויסקי סאוור - Whiskey sour",
+      "baseSpirit": "ויסקי",
+      "ingredients": ["60 מ\"ל ויסקי", "30 מ\"ל מיץ לימון", "30 מ\"ל סירופ סוכר"],
+      "glassType": "לואו-בול",
+      "preparationMethod": "ניעור",
+      "notes": "גרסה קלאסית ממשפחת הסאוור – מאוזן ופשוט להכנה.",
+      "flavorProfile": "חמוץ-מתוק קלאסי עם טעמי ויסקי מודגשים",
+      "image": "Cocktails/whiskey_sour.jpg",
+      "test": true,
+      "family": "הסאוור - Sour",
+      "personalMenu": true,
+      "date": ["08.08.2025", "18.10.2025"]
     },
     {
-        "id": 3,
-        "name": "ניו יורק ויסקי סאוור",
-        "baseSpirit": "בורבון",
-        "ingredients": [
-            "60 מ\"ל בורבון",
-            "30 מ\"ל מיץ לימון",
-            "30 מ\"ל סירופ סוכר",
-            "מקציף",
-            "יין אדום לציפה"
-        ],
-        "glassType": "לואו-בול",
-        "preparationMethod": ["ניעור", "הצפה"],
-        "notes": "שכבת יין אדום יוצרת מראה מרשים וטעם מורכב.",
-        "flavorProfile": "סאוור קלאסי עם עומק פירותי מהיין",
-        "image": "Cocktails/new_york_sour.jpg",
-        "family": "הסאוור - Sour"
+      "id": 3,
+      "name": "ניו יורק ויסקי סאוור",
+      "baseSpirit": "בורבון",
+      "ingredients": ["60 מ\"ל בורבון", "30 מ\"ל מיץ לימון", "30 מ\"ל סירופ סוכר", "מקציף", "יין אדום לציפה"],
+      "glassType": "לואו-בול",
+      "preparationMethod": ["ניעור", "הצפה"],
+      "notes": "שכבת יין אדום יוצרת מראה מרשים וטעם מורכב.",
+      "flavorProfile": "סאוור קלאסי עם עומק פירותי מהיין",
+      "image": "Cocktails/new_york_sour.jpg",
+      "family": "הסאוור - Sour"
     },
     {
-        "id": 4,
-        "name": "פניצילין",
-        "baseSpirit": "ויסקי סקוטי",
-        "ingredients": [
-            "45 מ\"ל סקוטש בלנדד",
-            "15 מ\"ל סינגל מאלט מעושן (איילה)",
-            "30 מ\"ל מיץ לימון",
-            "15 מ\"ל סירופ דבש",
-            "15 מ\"ל ליקר ג'ינג'ר"
-        ],
-        "glassType": "לואו-בול",
-        "garnish": "טוויסט לימון או פרוסת ג'ינג'ר",
-        "preparationMethod": "ניעור",
-        "notes": "קוקטייל עם ניחוח מעושן ותחושת חמימות – כמו תרופה טעימה.",
-        "flavorProfile": "חמוץ, מתקתק, חריפות עדינה עם סיומת מעושנת",
-        "image": "Cocktails/penicillin.jpg"
+      "id": 4,
+      "name": "פניצילין",
+      "baseSpirit": "ויסקי סקוטי",
+      "ingredients": ["45 מ\"ל סקוטש בלנדד", "15 מ\"ל סינגל מאלט מעושן (איילה)", "30 מ\"ל מיץ לימון", "15 מ\"ל סירופ דבש", "15 מ\"ל ליקר ג'ינג'ר"],
+      "glassType": "לואו-בול",
+      "garnish": "טוויסט לימון או פרוסת ג'ינג'ר",
+      "preparationMethod": "ניעור",
+      "notes": "קוקטייל עם ניחוח מעושן ותחושת חמימות – כמו תרופה טעימה.",
+      "flavorProfile": "חמוץ, מתקתק, חריפות עדינה עם סיומת מעושנת",
+      "image": "Cocktails/penicillin.jpg"
     },
     {
-        "id": 5,
-        "name": "סיידקאר - Sidecar",
-        "baseSpirit": "קוניאק",
-        "ingredients": [
-            "60 מ\"ל קוניאק",
-            "30 מ\"ל טריפל סק",
-            "30 מ\"ל מיץ לימון"
-        ],
-        "glassType": "קופ",
-        "garnish": "טבעת סוכר על השפה",
-        "preparationMethod": "ניעור",
-        "notes": "קלאסיקה אלגנטית ממשפחת הסאוור עם טוויסט של תפוזים.",
-        "flavorProfile": "חמוץ-מתוק עם ארומה של קוניאק ותפוזים",
-        "image": "Cocktails/sidecar.webp",
-        "family": "דייזי - Daisy"
+      "id": 5,
+      "name": "סיידקאר - Sidecar",
+      "baseSpirit": "קוניאק",
+      "ingredients": ["60 מ\"ל קוניאק", "30 מ\"ל טריפל סק", "30 מ\"ל מיץ לימון"],
+      "glassType": "קופ",
+      "garnish": "טבעת סוכר על השפה",
+      "preparationMethod": "ניעור",
+      "notes": "קלאסיקה אלגנטית ממשפחת הסאוור עם טוויסט של תפוזים.",
+      "flavorProfile": "חמוץ-מתוק עם ארומה של קוניאק ותפוזים",
+      "image": "Cocktails/sidecar.webp",
+      "family": "דייזי - Daisy"
     },
     {
-        "id": 6,
-        "name": "אולד פאשנד - Old Fashioned",
-        "baseSpirit": "ויסקי",
-        "ingredients": [
-            "60 מ\"ל ויסקי",
-            "3 דשים אנגוסטורה ביטר",
-            "10 מ\"ל סירופ סוכר"
-        ],
-        "glassType": "לואו-בול",
-        "garnish": "טוויסט תפוז",
-        "preparationMethod": "ערבוב",
-        "notes": "מהקוקטיילים הראשונים בהיסטוריה – פשוט, אלגנטי ומרוכז בטעמי האלכוהול.",
-        "flavorProfile": "חזק, מעט מתקתק, ארומטי מהביטר",
-        "image": "Cocktails/old_fashioned.jpg",
-        "test": true,
-        "family": "אולד פאשנד - Old Fashioned"
+      "id": 6,
+      "name": "אולד פאשנד - Old Fashioned",
+      "baseSpirit": "ויסקי",
+      "ingredients": ["60 מ\"ל ויסקי", "3 דשים אנגוסטורה ביטר", "10 מ\"ל סירופ סוכר"],
+      "glassType": "לואו-בול",
+      "garnish": "טוויסט תפוז",
+      "preparationMethod": "ערבוב",
+      "notes": "מהקוקטיילים הראשונים בהיסטוריה – פשוט, אלגנטי ומרוכז בטעמי האלכוהול.",
+      "flavorProfile": "חזק, מעט מתקתק, ארומטי מהביטר",
+      "image": "Cocktails/old_fashioned.jpg",
+      "test": true,
+      "family": "אולד פאשנד - Old Fashioned"
     },
     {
-        "id": 7,
-        "name": "סזראק - Sazerac",
-        "baseSpirit": ["ויסקי ריי", "קוניאק"],
-        "ingredients": [
-            "60 מ\"ל ספיריט",
-            "3 דשים פיישוד'ס ביטר",
-            "10 מ\"ל סירופ סוכר",
-            "שטיפה באבסנט"
-        ],
-        "glassType": "לואו-בול",
-        "garnish": "קליפת לימון",
-        "preparationMethod": ["ערבוב", "שטיפה"],
-        "notes": "וריאציה ניו אורלינסית לאולד פאשנד – עם ארומה ייחודית של אבסנט.",
-        "flavorProfile": "חזק, ארומטי, עם נגיעה עשבית וחריפות עדינה",
-        "image": "Cocktails/sazerac.jpg",
-        "family": "אולד פאשנד - Old Fashioned"
+      "id": 7,
+      "name": "סזראק - Sazerac",
+      "baseSpirit": ["ויסקי ריי", "קוניאק"],
+      "ingredients": ["60 מ\"ל ספיריט", "3 דשים פיישוד'ס ביטר", "10 מ\"ל סירופ סוכר", "שטיפה באבסנט"],
+      "glassType": "לואו-בול",
+      "garnish": "קליפת לימון",
+      "preparationMethod": ["ערבוב", "שטיפה"],
+      "notes": "וריאציה ניו אורלינסית לאולד פאשנד – עם ארומה ייחודית של אבסנט.",
+      "flavorProfile": "חזק, ארומטי, עם נגיעה עשבית וחריפות עדינה",
+      "image": "Cocktails/sazerac.jpg",
+      "family": "אולד פאשנד - Old Fashioned"
     },
     {
-        "id": 8,
-        "name": "מנהטן - Manhattan",
-        "baseSpirit": "ויסקי",
-        "ingredients": [
-            "60 מ\"ל ויסקי",
-            "30 מ\"ל ורמוט אדום",
-            "3 דשים אנגוסטורה ביטר"
-        ],
-        "glassType": "קופ",
-        "garnish": "קליפת תפוז או דובדבן מרצ'ינו",
-        "preparationMethod": "ערבוב",
-        "notes": "קוקטייל נצחי עם שילוב קלאסי של וויסקי ומתיקות מעודנת.",
-        "flavorProfile": "מאוזן, עשיר, ארומטי",
-        "image": "Cocktails/manhattan.jpg",
-        "test": true,
-        "family": "מנהטן - Manhattan"
+      "id": 8,
+      "name": "מנהטן - Manhattan",
+      "baseSpirit": "ויסקי",
+      "ingredients": ["60 מ\"ל ויסקי", "30 מ\"ל ורמוט אדום", "3 דשים אנגוסטורה ביטר"],
+      "glassType": "קופ",
+      "garnish": "קליפת תפוז או דובדבן מרצ'ינו",
+      "preparationMethod": "ערבוב",
+      "notes": "קוקטייל נצחי עם שילוב קלאסי של וויסקי ומתיקות מעודנת.",
+      "flavorProfile": "מאוזן, עשיר, ארומטי",
+      "image": "Cocktails/manhattan.jpg",
+      "test": true,
+      "family": "מנהטן - Manhattan"
     },
     {
-        "id": 9,
-        "name": "מרטינז / מרטינס - Martinez",
-        "baseSpirit": "ג׳ין",
-        "ingredients": [
-            "45 מ\"ל ג׳ין",
-            "45 מ\"ל ורמוט אדום",
-            "5 מ\"ל ליקר דובדבן מרסקינו",
-            "3 דשים אנגוסטורה ביטר",
-            "אופציונלי: 5 מ\"ל ליקר תפוזים"
-        ],
-        "glassType": "קופ",
-        "garnish": "קליפת תפוז",
-        "preparationMethod": "ערבוב",
-        "notes": "הקדם למרטיני – עגול יותר בטעמים עם טאץ' פירותי.",
-        "flavorProfile": "מתוק-מריר עם עומק של עשבים ודובדבן",
-        "image": "Cocktails/martinez.jpg",
-        "test": true,
-        "family": "מנהטן - Manhattan"
+      "id": 9,
+      "name": "מרטינז / מרטינס - Martinez",
+      "baseSpirit": "ג׳ין",
+      "ingredients": ["45 מ\"ל ג׳ין", "45 מ\"ל ורמוט אדום", "5 מ\"ל ליקר דובדבן מרסקינו", "3 דשים אנגוסטורה ביטר", "אופציונלי: 5 מ\"ל ליקר תפוזים"],
+      "glassType": "קופ",
+      "garnish": "קליפת תפוז",
+      "preparationMethod": "ערבוב",
+      "notes": "הקדם למרטיני – עגול יותר בטעמים עם טאץ' פירותי.",
+      "flavorProfile": "מתוק-מריר עם עומק של עשבים ודובדבן",
+      "image": "Cocktails/martinez.jpg",
+      "test": true,
+      "family": "מנהטן - Manhattan"
     },
     {
-        "id": 10,
-        "name": "מרטיני - Martini",
-        "baseSpirit": ["ג׳ין", "וודקה"],
-        "ingredients": [
-            "60 מ\"ל ספיריט",
-            "15 מ\"ל ורמוט אקסטרה דריי",
-            "כפית מי זיתים (לגרסה המלוחה)"
-        ],
-        "glassType": ["קופ", "מרטיני"],
-        "garnish": "זית או קליפת לימון",
-        "preparationMethod": "ערבוב",
-        "notes": "הדרינק האייקוני שמסמל סטייל וניקיון – מינימליסטי ועוצמתי.",
-        "flavorProfile": "יבש, חד, אלגנטי",
-        "image": "Cocktails/martini.webp",
-        "family": "מנהטן - Manhattan",
-        "personalMenu": true
+      "id": 10,
+      "name": "מרטיני - Martini",
+      "baseSpirit": ["ג׳ין", "וודקה"],
+      "ingredients": ["60 מ\"ל ספיריט", "15 מ\"ל ורמוט אקסטרה דריי", "כפית מי זיתים (לגרסה המלוחה)"],
+      "glassType": ["קופ", "מרטיני"],
+      "garnish": "זית או קליפת לימון",
+      "preparationMethod": "ערבוב",
+      "notes": "הדרינק האייקוני שמסמל סטייל וניקיון – מינימליסטי ועוצמתי.",
+      "flavorProfile": "יבש, חד, אלגנטי",
+      "image": "Cocktails/martini.webp",
+      "family": "מנהטן - Manhattan",
+      "personalMenu": true,
+      "date": ["08.08.2025"]
     },
     {
-        "id": 11,
-        "name": "נגרוני - Negroni",
-        "baseSpirit": "ג׳ין",
-        "ingredients": [
-            "30 מ\"ל ג׳ין",
-            "30 מ\"ל קמפרי",
-            "30 מ\"ל ורמוט אדום"
-        ],
-        "glassType": "לואו-בול",
-        "garnish": "קליפת תפוז",
-        "preparationMethod": "ערבוב",
-        "notes": "אפריטיף איטלקי איקוני עם שילוב מריר, מתוק וארומטי – קוקטייל מאוזן וקלאסי.",
-        "flavorProfile": "מריר-מתוק עם ניחוח הדרים",
-        "image": "Cocktails/negroni.jpg",
-        "test": true,
-        "family": "חלקים שווים - Equal parts",
-        "personalMenu": true
+      "id": 11,
+      "name": "נגרוני - Negroni",
+      "baseSpirit": "ג׳ין",
+      "ingredients": ["30 מ\"ל ג׳ין", "30 מ\"ל קמפרי", "30 מ\"ל ורמוט אדום"],
+      "glassType": "לואו-בול",
+      "garnish": "קליפת תפוז",
+      "preparationMethod": "ערבוב",
+      "notes": "אפריטיף איטלקי איקוני עם שילוב מריר, מתוק וארומטי – קוקטייל מאוזן וקלאסי.",
+      "flavorProfile": "מריר-מתוק עם ניחוח הדרים",
+      "image": "Cocktails/negroni.jpg",
+      "test": true,
+      "family": "חלקים שווים - Equal parts",
+      "personalMenu": true,
+      "date": ["08.08.2025"]
     },
     {
-        "id": 12,
-        "name": "בולברדייה - Boulevardier",
-        "baseSpirit": "בורבון",
-        "ingredients": [
-            "30 מ\"ל בורבון",
-            "30 מ\"ל קמפרי",
-            "30 מ\"ל ורמוט אדום"
-        ],
-        "glassType": "לואו-בול",
-        "garnish": "קליפת תפוז",
-        "preparationMethod": "ערבוב",
-        "notes": "וריאציה חמה ובועטת לנגרוני – עם עומק וגוף מהבורבון.",
-        "flavorProfile": "מריר, עשיר, הדרי עם עומק קרמלי",
-        "image": "Cocktails/boulevardier.jpg",
-        "family": "חלקים שווים - Equal parts"
+      "id": 12,
+      "name": "בולברדייה - Boulevardier",
+      "baseSpirit": "בורבון",
+      "ingredients": ["30 מ\"ל בורבון", "30 מ\"ל קמפרי", "30 מ\"ל ורמוט אדום"],
+      "glassType": "לואו-בול",
+      "garnish": "קליפת תפוז",
+      "preparationMethod": "ערבוב",
+      "notes": "וריאציה חמה ובועטת לנגרוני – עם עומק וגוף מהבורבון.",
+      "flavorProfile": "מריר, עשיר, הדרי עם עומק קרמלי",
+      "image": "Cocktails/boulevardier.jpg",
+      "family": "חלקים שווים - Equal parts"
     },
     {
-        "id": 13,
-        "name": "מרגריטה - Margarita",
-        "baseSpirit": "טקילה בלנקו",
-        "ingredients": [
-            "60 מ\"ל טקילה בלנקו",
-            "30 מ\"ל ליקר קואנטרו (טריפל סק)",
-            "30 מ\"ל מיץ ליים"
-        ],
-        "glassType": "קופ",
-        "garnish": "חצי רים מלח",
-        "preparationMethod": "ניעור",
-        "notes": "אחד הקוקטיילים האהובים בעולם – שילוב רענן של חמיצות, מתיקות ומליחות.",
-        "flavorProfile": "חמוץ-מלוח עם סיומת פירותית",
-        "image": "Cocktails/margarita.webp",
-        "test": true,
-        "family": "דייזי - Daisy"
+      "id": 13,
+      "name": "מרגריטה - Margarita",
+      "baseSpirit": "טקילה בלנקו",
+      "ingredients": ["60 מ\"ל טקילה בלנקו", "30 מ\"ל ליקר קואנטרו (טריפל סק)", "30 מ\"ל מיץ ליים"],
+      "glassType": "קופ",
+      "garnish": "חצי רים מלח",
+      "preparationMethod": "ניעור",
+      "notes": "אחד הקוקטיילים האהובים בעולם – שילוב רענן של חמיצות, מתיקות ומליחות.",
+      "flavorProfile": "חמוץ-מלוח עם סיומת פירותית",
+      "image": "Cocktails/margarita.webp",
+      "test": true,
+      "family": "דייזי - Daisy"
     },
     {
-        "id": 14,
-        "name": "גימלט - Gimlet",
-        "baseSpirit": "ג׳ין",
-        "ingredients": [
-            "60 מ\"ל ג׳ין",
-            "30 מ\"ל מיץ ליים",
-            "15 מ\"ל סירופ סוכר"
-        ],
-        "glassType": "קופ",
-        "garnish": "אפשרי: פלח ליים",
-        "preparationMethod": "ניעור",
-        "notes": "קוקטייל פשוט וחד – עם איזון מושלם בין ג׳ין לליים.",
-        "flavorProfile": "חמוץ, חד, מרענן",
-        "image": "Cocktails/gimlet.jpg",
-        "family": "חתוך בחצי - Cut in Half"
+      "id": 14,
+      "name": "גימלט - Gimlet",
+      "baseSpirit": "ג׳ין",
+      "ingredients": ["60 מ\"ל ג׳ין", "30 מ\"ל מיץ ליים", "15 מ\"ל סירופ סוכר"],
+      "glassType": "קופ",
+      "garnish": "אפשרי: פלח ליים",
+      "preparationMethod": "ניעור",
+      "notes": "קוקטייל פשוט וחד – עם איזון מושלם בין ג׳ין לליים.",
+      "flavorProfile": "חמוץ, חד, מרענן",
+      "image": "Cocktails/gimlet.jpg",
+      "family": "חתוך בחצי - Cut in Half"
     },
     {
-        "id": 15,
-        "name": "קלובר קלאב - Clover Club",
-        "baseSpirit": "ג׳ין",
-        "ingredients": [
-            "60 מ\"ל ג׳ין",
-            "30 מ\"ל סירופ פירות אדומים (פטל/תות)",
-            "30 מ\"ל מיץ לימון",
-            "חלבון ביצה"
-        ],
-        "glassType": "קופ",
-        "garnish": "שיפוד פטל",
-        "preparationMethod": "ניעור כפול",
-        "notes": "קוקטייל קטיפתי עם טעמים פירותיים – חזר לתודעה אחרי עשורים של שכחה.",
-        "flavorProfile": "חמוץ-מתוק עם גוף עשיר ומרקם קרמי",
-        "image": "Cocktails/clover_club.jpg",
-        "family": "הסאוור - Sour"
+      "id": 15,
+      "name": "קלובר קלאב - Clover Club",
+      "baseSpirit": "ג׳ין",
+      "ingredients": ["60 מ\"ל ג׳ין", "30 מ\"ל סירופ פירות אדומים (פטל/תות)", "30 מ\"ל מיץ לימון", "חלבון ביצה"],
+      "glassType": "קופ",
+      "garnish": "שיפוד פטל",
+      "preparationMethod": "ניעור כפול",
+      "notes": "קוקטייל קטיפתי עם טעמים פירותיים – חזר לתודעה אחרי עשורים של שכחה.",
+      "flavorProfile": "חמוץ-מתוק עם גוף עשיר ומרקם קרמי",
+      "image": "Cocktails/clover_club.jpg",
+      "family": "הסאוור - Sour"
     },
     {
-        "id": 16,
-        "name": "The Last Word - המילה האחרונה",
-        "baseSpirit": "ג׳ין",
-        "ingredients": [
-            "30 מ\"ל ג׳ין",
-            "30 מ\"ל ליקר מרסקינו (דובדבן)",
-            "30 מ\"ל שארטרז ירוק",
-            "30 מ\"ל מיץ ליים"
-        ],
-        "glassType": "קופ",
-        "preparationMethod": "ניעור",
-        "notes": "קוקטייל חזק ומורכב עם איזון נדיר בין עשבוניות, חמיצות ומתיקות.",
-        "flavorProfile": "מריר-עשבי, חמוץ-מתוק עם סיומת ארוכה",
-        "image": "Cocktails/last_word.jpg",
-        "test": true,
-        "family": "חלקים שווים - Equal parts"
+      "id": 16,
+      "name": "The Last Word - המילה האחרונה",
+      "baseSpirit": "ג׳ין",
+      "ingredients": ["30 מ\"ל ג׳ין", "30 מ\"ל ליקר מרסקינו (דובדבן)", "30 מ\"ל שארטרז ירוק", "30 מ\"ל מיץ ליים"],
+      "glassType": "קופ",
+      "preparationMethod": "ניעור",
+      "notes": "קוקטייל חזק ומורכב עם איזון נדיר בין עשבוניות, חמיצות ומתיקות.",
+      "flavorProfile": "מריר-עשבי, חמוץ-מתוק עם סיומת ארוכה",
+      "image": "Cocktails/last_word.jpg",
+      "test": true,
+      "family": "חלקים שווים - Equal parts"
     },
     {
       "id": 17,
       "name": "קובה ליברה - Cuba libre",
       "baseSpirit": "רום כהה",
-      "ingredients": [
-          "60 מ\"ל רום כהה",
-          "120 מ\"ל קולה"
-      ],
+      "ingredients": ["60 מ\"ל רום כהה", "120 מ\"ל קולה"],
       "glassType": "היי-בול",
       "garnish": "פלח ליים",
       "preparationMethod": "בנייה",
@@ -303,155 +230,139 @@
       "image": "Cocktails/cuba_libre.jpg"
     },
     {
-        "id": 18,
-        "name": "מוסקו מיול - Moscow mule",
-        "baseSpirit": "וודקה",
-        "ingredients": [
-            "60 מ\"ל וודקה",
-            "120 מ\"ל בירה ג'ינג'ר",
-            "15 מ\"ל מיץ ליים טרי"
-        ],
-        "glassType": "היי-בול",
-        "garnish": "פלח ליים",
-        "preparationMethod": "בנייה",
-        "notes": "קוקטייל אייקוני משנות ה-40 שנולד בארצות הברית, ונעשה פופולרי הודות לשילוב חריף ומרענן של ג'ינג'ר וליים – מוגש לרוב בכוס נחושת ייחודית.",
-        "flavorProfile": "מרענן, חריף-מתקתק עם חמיצות הדרית בולטת",
-        "image": "Cocktails/moscow_mule.jpg"
-      },
-      {
-        "id": 19,
-        "name": "מוחיטו - Mojito",
-        "baseSpirit": "רום לבן",
-        "ingredients": [
-            "45 מ\"ל רום לבן",
-            "4 קוביות ליים טרי",
-            "6-7 עלי נענע קטנים",
-            "כפית סוכר",
-            "סודה"
-        ],
-        "glassType": "היי-בול",
-        "garnish": "עלה נענע",
-        "preparationMethod": "בנייה",
-        "notes": "נקח את כל הרכיבים חוץ מהרום והסודה לכוס, נמעך אותם 7-8 פעמים, נוסיף 3/4 קרח מעוך, נוסיף את הרום ונמלא בסודה, נוסיף עוד קרח בסוף אחרי הצפה קלה עם כפית",
-        "flavorProfile": "מרענן ופירותי [קליל, מתוק-חמצמץ]",
-        "image": "Cocktails/mojito.webp",
-        "personalMenu": true
-      },
-      {
-        "id": 20,
-        "name": "אורגזמה - Orgasm",
-        "baseSpirit": "בייליס",
-        "ingredients": [
-            "30 מ\"ל בייליס",
-            "30 מ\"ל קלואה",
-            "30 מ\"ל שמנת מתוקה"
-        ],
-        "glassType": "לואו-בול",
-        "preparationMethod": "ניעור",
-        "flavorProfile": "קרמי ומתוק [קינוחי, קליל]",
-        "image": "Cocktails/orgasm.webp",
-        "family": "חלקים שווים - Equal parts",
-        "personalMenu": true
-      },
-      {
-        "id": 21,
-        "name": "פלומה - Paloma",
-        "baseSpirit": ["טקילה בלנקו", "טקילה רפוסאדו"],
-        "ingredients": [
-            "60 מ\"ל טקילה",
-            "מיץ אשכולית אדומה"
-        ],
-        "glassType": "היי-בול",
-        "garnish": "חצי רים מלח",
-        "preparationMethod": "בנייה",
-        "flavorProfile": "חמצמץ-מריר [רענן, לא מתוק]",
-        "image": "Cocktails/paloma.jpg",
-        "personalMenu": true
-      }
+      "id": 18,
+      "name": "מוסקו מיול - Moscow mule",
+      "baseSpirit": "וודקה",
+      "ingredients": ["60 מ\"ל וודקה", "120 מ\"ל בירה ג'ינג'ר", "15 מ\"ל מיץ ליים טרי"],
+      "glassType": "היי-בול",
+      "garnish": "פלח ליים",
+      "preparationMethod": "בנייה",
+      "notes": "קוקטייל אייקוני משנות ה-40 שנולד בארצות הברית, ונעשה פופולרי הודות לשילוב חריף ומרענן של ג'ינג'ר וליים – מוגש לרוב בכוס נחושת ייחודית.",
+      "flavorProfile": "מרענן, חריף-מתקתק עם חמיצות הדרית בולטת",
+      "image": "Cocktails/moscow_mule.jpg"
+    },
+    {
+      "id": 19,
+      "name": "מוחיטו - Mojito",
+      "baseSpirit": "רום לבן",
+      "ingredients": ["45 מ\"ל רום לבן", "4 קוביות ליים טרי", "6-7 עלי נענע קטנים", "כפית סוכר", "סודה"],
+      "glassType": "היי-בול",
+      "garnish": "עלה נענע",
+      "preparationMethod": "בנייה",
+      "notes": "נקח את כל הרכיבים חוץ מהרום והסודה לכוס, נמעך אותם 7-8 פעמים, נוסיף 3/4 קרח מעוך, נוסיף את הרום ונמלא בסודה, נוסיף עוד קרח בסוף אחרי הצפה קלה עם כפית",
+      "flavorProfile": "מרענן ופירותי [קליל, מתוק-חמצמץ]",
+      "image": "Cocktails/mojito.webp",
+      "personalMenu": true,
+      "date": ["08.08.2025", "18.10.2025"]
+    },
+    {
+      "id": 20,
+      "name": "אורגזמה - Orgasm",
+      "baseSpirit": "בייליס",
+      "ingredients": ["30 מ\"ל בייליס", "30 מ\"ל קלואה", "30 מ\"ל שמנת מתוקה"],
+      "glassType": "לואו-בול",
+      "preparationMethod": "ניעור",
+      "flavorProfile": "קרמי ומתוק [קינוחי, קליל]",
+      "image": "Cocktails/orgasm.webp",
+      "family": "חלקים שווים - Equal parts",
+      "personalMenu": true,
+      "date": ["08.08.2025", "18.10.2025"]
+    },
+    {
+      "id": 21,
+      "name": "פלומה - Paloma",
+      "baseSpirit": ["טקילה בלנקו", "טקילה רפוסאדו"],
+      "ingredients": ["60 מ\"ל טקילה", "מיץ אשכולית אדומה"],
+      "glassType": "היי-בול",
+      "garnish": "חצי רים מלח",
+      "preparationMethod": "בנייה",
+      "flavorProfile": "חמצמץ-מריר [רענן, לא מתוק]",
+      "image": "Cocktails/paloma.jpg",
+      "personalMenu": true,
+      "date": ["08.08.2025"]
+    },
+    {
+      "id": 22,
+      "name": "טקילה סאנרייז - Tequila Sunrise",
+      "baseSpirit": "טקילה",
+      "ingredients": ["45 מ\"ל טקילה", "90 מ\"ל מיץ תפוזים", "15 מ\"ל גרנדין"],
+      "glassType": "היי-בול",
+      "garnish": "פרוסת תפוז",
+      "preparationMethod": "בנייה",
+      "notes": "קוקטייל צבעוני עם שכבות יפות של צבעים - מהתפוזים והגרנדין",
+      "flavorProfile": "מתוק ופירותי עם טעמי תפוזים וגרנדין",
+      "image": "Cocktails/tequila_sunrise.png",
+      "date": ["18.10.2025"]
+    },
+    {
+      "id": 23,
+      "name": "פינה קולדה - Pina Colada",
+      "baseSpirit": "רום",
+      "ingredients": ["52.5 מ\"ל מאליבו (¾1 oz)", "52.5 מ\"ל מיץ אננס (¾1 oz)", "22.5 מ\"ל קרם קוקוס (¾ oz)"],
+      "glassType": "היי-בול",
+      "garnish": "פרוסת אננס או דובדבן",
+      "preparationMethod": "ניעור",
+      "notes": "קוקטייל טרופי קלאסי עם טעמי אננס וקוקוס - מושלם לחוף הים",
+      "flavorProfile": "מתוק וטרופי עם טעמי אננס וקוקוס קרמיים",
+      "image": "Cocktails/pina_colada.webp",
+      "date": ["18.10.2025"]
+    }
   ],
   "FernetCocktails": [
     {
-        "id": 1,
-        "name": "Toronto",
-        "baseSpirit": "וויסקי ריי",
-        "ingredients": [
-          "60 מ\"ל וויסקי ריי",
-          "7.5 מ\"ל פרנט ברנקה",
-          "7.5 מ\"ל סירופ סוכר",
-          "2 דאש ביטרז אנגוסטורה"
-        ],
-        "glassType": ["קופ", "מרטיני"],
-        "garnish": "קליפת תפוז",
-        "preparationMethod": "ערבוב",
-        "notes": "קוקטייל קלאסי עם איזון בין מתוק למריר",
-        "flavorProfile": "מרירות עדינה עם נגיעות עץ ותבלינים",
-        "image": "Cocktails/toronto.webp"
-      },
-      {
-        "id": 2,
-        "name": "Hanky Panky",
-        "baseSpirit": "לונדון דריי ג'ין",
-        "ingredients": [
-          "45 מ\"ל לונדון דריי ג'ין",
-          "45 מ\"ל ורמוט מתוק",
-          "7.5 מ\"ל פרנט ברנקה"
-        ],
-        "glassType": "כוס קוקטייל",
-        "garnish": "טוויסט תפוז",
-        "preparationMethod": "ערבוב",
-        "notes": "קוקטייל אלגנטי שנוצר בלונדון בתחילת המאה ה־20 על ידי הברמנית עדה קולמן – שילוב ייחודי של עשבוניות ומתיקות עם נגיעה מרירה",
-        "flavorProfile": "מאוזן, עשבוני, עם סיומת מנטולית-מרירה",
-        "image": "Cocktails/hanky_panky.jpg"
-      },
-      {
-        "id": 3,
-        "name": "Fernet con Coca",
-        "baseSpirit": "פרנט ברנקה",
-        "ingredients": [
-          "50 מ\"ל פרנט ברנקה",
-          "150 מ\"ל קולה"
-        ],
-        "glassType": "היי-בול",
-        "preparationMethod": "בנייה",
-        "notes": "הקוקטייל הלאומי של ארגנטינה",
-        "flavorProfile": "מתיקות הקולה מאזנת את המרירות",
-        "image": "Cocktails/fernet_coca.jpg"
-      },
-      {
-        "id": 4,
-        "name": "Midnight Marauder",
-        "baseSpirit": "רום מיושן",
-        "ingredients": [
-          "45 מ\"ל רום מיושן",
-          "15 מ\"ל פרנט ברנקה",
-          "15 מ\"ל מיץ ליים",
-          "15 מ\"ל סירופ סוכר",
-          "דאש ביטרז"
-        ],
-        "glassType": "לואו-בול",
-        "garnish": "קליפת ליים או נענע",
-        "preparationMethod": "ניעור",
-        "notes": "קוקטייל מודרני עם עומק ומרירות",
-        "flavorProfile": "שילוב של חמיצות, מתיקות ומרירות",
-        "image": "Cocktails/midnight_marauder.webp"
-      }
+      "id": 1,
+      "name": "Toronto",
+      "baseSpirit": "וויסקי ריי",
+      "ingredients": ["60 מ\"ל וויסקי ריי", "7.5 מ\"ל פרנט ברנקה", "7.5 מ\"ל סירופ סוכר", "2 דאש ביטרז אנגוסטורה"],
+      "glassType": ["קופ", "מרטיני"],
+      "garnish": "קליפת תפוז",
+      "preparationMethod": "ערבוב",
+      "notes": "קוקטייל קלאסי עם איזון בין מתוק למריר",
+      "flavorProfile": "מרירות עדינה עם נגיעות עץ ותבלינים",
+      "image": "Cocktails/toronto.webp"
+    },
+    {
+      "id": 2,
+      "name": "Hanky Panky",
+      "baseSpirit": "לונדון דריי ג'ין",
+      "ingredients": ["45 מ\"ל לונדון דריי ג'ין", "45 מ\"ל ורמוט מתוק", "7.5 מ\"ל פרנט ברנקה"],
+      "glassType": "כוס קוקטייל",
+      "garnish": "טוויסט תפוז",
+      "preparationMethod": "ערבוב",
+      "notes": "קוקטייל אלגנטי שנוצר בלונדון בתחילת המאה ה־20 על ידי הברמנית עדה קולמן – שילוב ייחודי של עשבוניות ומתיקות עם נגיעה מרירה",
+      "flavorProfile": "מאוזן, עשבוני, עם סיומת מנטולית-מרירה",
+      "image": "Cocktails/hanky_panky.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Fernet con Coca",
+      "baseSpirit": "פרנט ברנקה",
+      "ingredients": ["50 מ\"ל פרנט ברנקה", "150 מ\"ל קולה"],
+      "glassType": "היי-בול",
+      "preparationMethod": "בנייה",
+      "notes": "הקוקטייל הלאומי של ארגנטינה",
+      "flavorProfile": "מתיקות הקולה מאזנת את המרירות",
+      "image": "Cocktails/fernet_coca.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Midnight Marauder",
+      "baseSpirit": "רום מיושן",
+      "ingredients": ["45 מ\"ל רום מיושן", "15 מ\"ל פרנט ברנקה", "15 מ\"ל מיץ ליים", "15 מ\"ל סירופ סוכר", "דאש ביטרז"],
+      "glassType": "לואו-בול",
+      "garnish": "קליפת ליים או נענע",
+      "preparationMethod": "ניעור",
+      "notes": "קוקטייל מודרני עם עומק ומרירות",
+      "flavorProfile": "שילוב של חמיצות, מתיקות ומרירות",
+      "image": "Cocktails/midnight_marauder.webp"
+    }
   ],
   "cocktailFamilies": {
     "חתוך בחצי - Cut in Half": {
-      "description": [
-        "משפחת קוקטיילים המבוססת על יחס של 60:30:15 כלומר:",
-        "60 מ\"ל אלכוהול בסיס",
-        "30 מ\"ל רכיב חמוץ (מיץ לימון / ליים)",
-        "15 מ\"ל סירופ סוכר"
-      ]
+      "description": ["משפחת קוקטיילים המבוססת על יחס של 60:30:15 כלומר:", "60 מ\"ל אלכוהול בסיס", "30 מ\"ל רכיב חמוץ (מיץ לימון / ליים)", "15 מ\"ל סירופ סוכר"]
     },
     "הסאוור - Sour": {
-      "description": [
-        "משפחת קוקטיילים המבוססת על שילוב של:",
-        "אלכוהול בסיס",
-        "רכיב חמוץ (מיץ לימון / ליים)",
-        "רכיב מתוק (סירופ סוכר או ליקר)"
-      ]
+      "description": ["משפחת קוקטיילים המבוססת על שילוב של:", "אלכוהול בסיס", "רכיב חמוץ (מיץ לימון / ליים)", "רכיב מתוק (סירופ סוכר או ליקר)"]
     },
     "דייזי - Daisy": {
       "description": [
@@ -472,19 +383,10 @@
       ]
     },
     "מנהטן - Manhattan": {
-      "description": [
-        "משפחת קוקטיילים המבוססת על:",
-        "אלכוהול בסיס",
-        "ורמוט (לרוב מתוק)",
-        "2-3 דשים של ביטר",
-        "ערבוב והגשה בכוס קופ"
-      ]
+      "description": ["משפחת קוקטיילים המבוססת על:", "אלכוהול בסיס", "ורמוט (לרוב מתוק)", "2-3 דשים של ביטר", "ערבוב והגשה בכוס קופ"]
     },
     "חלקים שווים - Equal parts": {
-      "description": [
-        "משפחת קוקטיילים המבוססת על שלושה מרכיבים עיקריים ביחסים שווים",
-        "מוגשים לרוב בכוס לואו-בול"
-      ]
+      "description": ["משפחת קוקטיילים המבוססת על שלושה מרכיבים עיקריים ביחסים שווים", "מוגשים לרוב בכוס לואו-בול"]
     }
   }
-} 
+}

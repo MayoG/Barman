@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
-import styled from '@emotion/styled';
-import cocktailsData from '../data/cocktails.json';
+import React, { useState, useMemo } from "react";
+import styled from "@emotion/styled";
+import cocktailsData from "../data/cocktails.json";
 
 const CocktailsContainer = styled.div`
   max-width: 1200px;
@@ -44,9 +44,9 @@ const CocktailsSwitcher = styled.div`
 `;
 
 const CocktailButton = styled.button`
-  background: ${props => props.active ? 'rgba(212, 175, 55, 0.3)' : 'transparent'};
-  border: 1px solid ${props => props.active ? 'rgba(212, 175, 55, 0.5)' : 'rgba(212, 175, 55, 0.2)'};
-  color: ${props => props.active ? '#ffffff' : '#d4af37'};
+  background: ${(props) => (props.active ? "rgba(212, 175, 55, 0.3)" : "transparent")};
+  border: 1px solid ${(props) => (props.active ? "rgba(212, 175, 55, 0.5)" : "rgba(212, 175, 55, 0.2)")};
+  color: ${(props) => (props.active ? "#ffffff" : "#d4af37")};
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
@@ -326,7 +326,7 @@ const FilterCheckbox = styled.div`
       border-color: rgba(212, 175, 55, 0.5);
 
       &::after {
-        content: '✓';
+        content: "✓";
         position: absolute;
         top: 50%;
         left: 50%;
@@ -373,7 +373,7 @@ const Tooltip = styled.div`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(212, 175, 55, 0.3);
   z-index: 1000;
-  display: ${props => props.show ? 'block' : 'none'};
+  display: ${(props) => (props.show ? "block" : "none")};
   backdrop-filter: blur(8px);
 
   ul {
@@ -409,54 +409,40 @@ const FamilyContainer = styled.div`
 
 const Cocktails = () => {
   const { cocktails, FernetCocktails, cocktailFamilies } = cocktailsData;
-  const [activeSection, setActiveSection] = useState('fernet');
+  const [activeSection, setActiveSection] = useState("fernet");
   const [hoveredTooltip, setHoveredTooltip] = useState(null);
   const [filters, setFilters] = useState({
-    name: '',
-    baseSpirit: '',
-    glassType: '',
-    preparationMethod: '',
-    family: '',
+    name: "",
+    baseSpirit: "",
+    glassType: "",
+    preparationMethod: "",
+    family: "",
     test: false,
-    personalMenu: false
   });
 
   // Filter cocktails based on selected filters
   const filteredCocktails = useMemo(() => {
-    return cocktails.filter(cocktail => {
-      const nameMatch = !filters.name || 
-        cocktail.name.toLowerCase().includes(filters.name.toLowerCase());
-      
-      const baseSpiritMatch = !filters.baseSpirit || 
-        (Array.isArray(cocktail.baseSpirit) 
-          ? cocktail.baseSpirit.includes(filters.baseSpirit)
-          : cocktail.baseSpirit === filters.baseSpirit);
-      
-      const preparationMethodMatch = !filters.preparationMethod ||
+    return cocktails.filter((cocktail) => {
+      const nameMatch = !filters.name || cocktail.name.toLowerCase().includes(filters.name.toLowerCase());
+
+      const baseSpiritMatch =
+        !filters.baseSpirit ||
+        (Array.isArray(cocktail.baseSpirit) ? cocktail.baseSpirit.includes(filters.baseSpirit) : cocktail.baseSpirit === filters.baseSpirit);
+
+      const preparationMethodMatch =
+        !filters.preparationMethod ||
         (Array.isArray(cocktail.preparationMethod)
           ? cocktail.preparationMethod.includes(filters.preparationMethod)
           : cocktail.preparationMethod === filters.preparationMethod);
-      
-      const glassTypeMatch = !filters.glassType ||
-        (Array.isArray(cocktail.glassType)
-          ? cocktail.glassType.includes(filters.glassType)
-          : cocktail.glassType === filters.glassType);
-      
+
+      const glassTypeMatch =
+        !filters.glassType || (Array.isArray(cocktail.glassType) ? cocktail.glassType.includes(filters.glassType) : cocktail.glassType === filters.glassType);
+
       const familyMatch = !filters.family || cocktail.family === filters.family;
-      
+
       const testMatch = !filters.test || cocktail.test === true;
-      
-      const personalMenuMatch = !filters.personalMenu || cocktail.personalMenu === true;
-      
-      return (
-        nameMatch &&
-        baseSpiritMatch &&
-        glassTypeMatch &&
-        preparationMethodMatch &&
-        familyMatch &&
-        testMatch &&
-        personalMenuMatch
-      );
+
+      return nameMatch && baseSpiritMatch && glassTypeMatch && preparationMethodMatch && familyMatch && testMatch;
     });
   }, [cocktails, filters]);
 
@@ -466,30 +452,24 @@ const Cocktails = () => {
       baseSpirit: new Set(),
       glassType: new Set(),
       preparationMethod: new Set(),
-      family: new Set()
+      family: new Set(),
     };
 
-    cocktails.forEach(cocktail => {
+    cocktails.forEach((cocktail) => {
       if (cocktail.baseSpirit) {
         // Handle both string and array cases for baseSpirit
-        const spirits = Array.isArray(cocktail.baseSpirit) 
-          ? cocktail.baseSpirit 
-          : [cocktail.baseSpirit];
-        spirits.forEach(spirit => options.baseSpirit.add(spirit));
+        const spirits = Array.isArray(cocktail.baseSpirit) ? cocktail.baseSpirit : [cocktail.baseSpirit];
+        spirits.forEach((spirit) => options.baseSpirit.add(spirit));
       }
       if (cocktail.glassType) {
         // Handle both string and array cases for glassType
-        const glasses = Array.isArray(cocktail.glassType)
-          ? cocktail.glassType
-          : [cocktail.glassType];
-        glasses.forEach(glass => options.glassType.add(glass));
+        const glasses = Array.isArray(cocktail.glassType) ? cocktail.glassType : [cocktail.glassType];
+        glasses.forEach((glass) => options.glassType.add(glass));
       }
       if (cocktail.preparationMethod) {
         // Handle both string and array cases for preparationMethod
-        const methods = Array.isArray(cocktail.preparationMethod)
-          ? cocktail.preparationMethod
-          : [cocktail.preparationMethod];
-        methods.forEach(method => options.preparationMethod.add(method));
+        const methods = Array.isArray(cocktail.preparationMethod) ? cocktail.preparationMethod : [cocktail.preparationMethod];
+        methods.forEach((method) => options.preparationMethod.add(method));
       }
       if (cocktail.family) {
         options.family.add(cocktail.family);
@@ -500,42 +480,34 @@ const Cocktails = () => {
       baseSpirit: Array.from(options.baseSpirit).sort(),
       glassType: Array.from(options.glassType).sort(),
       preparationMethod: Array.from(options.preparationMethod).sort(),
-      family: Array.from(options.family).sort()
+      family: Array.from(options.family).sort(),
     };
   }, [cocktails]);
 
   const handleFilterChange = (filterType, value) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
-      [filterType]: value
+      [filterType]: value,
     }));
   };
 
   return (
     <CocktailsContainer>
       <Title>קוקטיילים</Title>
-      
+
       <CocktailsSwitcher>
-        <CocktailButton 
-          active={activeSection === 'fernet'} 
-          onClick={() => setActiveSection('fernet')}
-        >
+        <CocktailButton active={activeSection === "fernet"} onClick={() => setActiveSection("fernet")}>
           פרנט ברנקה
         </CocktailButton>
-        <CocktailButton 
-          active={activeSection === 'classic'} 
-          onClick={() => setActiveSection('classic')}
-        >
+        <CocktailButton active={activeSection === "classic"} onClick={() => setActiveSection("classic")}>
           קלאסיים
         </CocktailButton>
       </CocktailsSwitcher>
 
-      {activeSection === 'fernet' ? (
+      {activeSection === "fernet" ? (
         <>
           <SectionTitle>קוקטיילים עם פרנט ברנקה</SectionTitle>
-          <SectionDescription>
-            אוסף של קוקטיילים מיוחדים המשלבים את הטעם הייחודי של פרנט ברנקה
-          </SectionDescription>
+          <SectionDescription>אוסף של קוקטיילים מיוחדים המשלבים את הטעם הייחודי של פרנט ברנקה</SectionDescription>
           <CocktailsGrid>
             {FernetCocktails.map((cocktail) => (
               <CocktailCard key={cocktail.id}>
@@ -547,11 +519,7 @@ const Cocktails = () => {
                   {cocktail.baseSpirit && (
                     <DetailItem>
                       <strong>אלכוהול בסיסי:</strong>
-                      <span>
-                        {Array.isArray(cocktail.baseSpirit) 
-                          ? cocktail.baseSpirit.join(' / ')
-                          : cocktail.baseSpirit}
-                      </span>
+                      <span>{Array.isArray(cocktail.baseSpirit) ? cocktail.baseSpirit.join(" / ") : cocktail.baseSpirit}</span>
                     </DetailItem>
                   )}
                   {cocktail.ingredients && cocktail.ingredients.length > 0 && (
@@ -567,9 +535,7 @@ const Cocktails = () => {
                   {cocktail.glassType && (
                     <DetailItem>
                       <strong>סוג כוס:</strong>
-                      <span>{Array.isArray(cocktail.glassType) 
-                          ? cocktail.glassType.join(' / ')
-                          : cocktail.glassType}</span>
+                      <span>{Array.isArray(cocktail.glassType) ? cocktail.glassType.join(" / ") : cocktail.glassType}</span>
                     </DetailItem>
                   )}
                   {cocktail.garnish && (
@@ -581,11 +547,7 @@ const Cocktails = () => {
                   {cocktail.preparationMethod && (
                     <DetailItem>
                       <strong>טכניקת הכנה:</strong>
-                      <span>
-                        {Array.isArray(cocktail.preparationMethod)
-                          ? cocktail.preparationMethod.join(' + ')
-                          : cocktail.preparationMethod}
-                      </span>
+                      <span>{Array.isArray(cocktail.preparationMethod) ? cocktail.preparationMethod.join(" + ") : cocktail.preparationMethod}</span>
                     </DetailItem>
                   )}
                   {cocktail.notes && (
@@ -604,10 +566,7 @@ const Cocktails = () => {
                     <DetailItem>
                       <strong>משפחה:</strong>
                       <FamilyContainer>
-                        <InfoIcon 
-                          onMouseEnter={() => setHoveredTooltip(`${cocktail.id}-${cocktail.family}`)}
-                          onMouseLeave={() => setHoveredTooltip(null)}
-                        >
+                        <InfoIcon onMouseEnter={() => setHoveredTooltip(`${cocktail.id}-${cocktail.family}`)} onMouseLeave={() => setHoveredTooltip(null)}>
                           &#9432;
                         </InfoIcon>
                         <span>{cocktail.family}</span>
@@ -629,9 +588,7 @@ const Cocktails = () => {
       ) : (
         <>
           <SectionTitle>קוקטיילים קלאסיים</SectionTitle>
-          <SectionDescription>
-            אוסף של קוקטיילים קלאסיים שנלמדו בקורס
-          </SectionDescription>
+          <SectionDescription>אוסף של קוקטיילים קלאסיים שנלמדו בקורס</SectionDescription>
 
           <FilterContainer>
             <FilterTitle>סינון קוקטיילים</FilterTitle>
@@ -639,14 +596,9 @@ const Cocktails = () => {
               <div>
                 <FilterLabel>חיפוש לפי שם</FilterLabel>
                 <FilterSelectWrapper>
-                  <FilterInput
-                    type="text"
-                    placeholder="הקלד שם קוקטייל..."
-                    value={filters.name}
-                    onChange={(e) => handleFilterChange('name', e.target.value)}
-                  />
+                  <FilterInput type="text" placeholder="הקלד שם קוקטייל..." value={filters.name} onChange={(e) => handleFilterChange("name", e.target.value)} />
                   {filters.name && (
-                    <ClearButton onClick={() => handleFilterChange('name', '')}>
+                    <ClearButton onClick={() => handleFilterChange("name", "")}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M18 6L6 18M6 6l12 12" />
                       </svg>
@@ -657,10 +609,7 @@ const Cocktails = () => {
               <div>
                 <FilterLabel>אלכוהול בסיסי</FilterLabel>
                 <FilterSelectWrapper>
-                  <FilterSelect
-                    value={filters.baseSpirit}
-                    onChange={(e) => handleFilterChange('baseSpirit', e.target.value)}
-                  >
+                  <FilterSelect value={filters.baseSpirit} onChange={(e) => handleFilterChange("baseSpirit", e.target.value)}>
                     <option value="">הכל</option>
                     {filterOptions.baseSpirit.map((spirit) => (
                       <option key={spirit} value={spirit}>
@@ -669,7 +618,7 @@ const Cocktails = () => {
                     ))}
                   </FilterSelect>
                   {filters.baseSpirit && (
-                    <ClearButton onClick={() => handleFilterChange('baseSpirit', '')}>
+                    <ClearButton onClick={() => handleFilterChange("baseSpirit", "")}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M18 6L6 18M6 6l12 12" />
                       </svg>
@@ -680,10 +629,7 @@ const Cocktails = () => {
               <div>
                 <FilterLabel>סוג כוס</FilterLabel>
                 <FilterSelectWrapper>
-                  <FilterSelect
-                    value={filters.glassType}
-                    onChange={(e) => handleFilterChange('glassType', e.target.value)}
-                  >
+                  <FilterSelect value={filters.glassType} onChange={(e) => handleFilterChange("glassType", e.target.value)}>
                     <option value="">הכל</option>
                     {filterOptions.glassType.map((glass) => (
                       <option key={glass} value={glass}>
@@ -692,7 +638,7 @@ const Cocktails = () => {
                     ))}
                   </FilterSelect>
                   {filters.glassType && (
-                    <ClearButton onClick={() => handleFilterChange('glassType', '')}>
+                    <ClearButton onClick={() => handleFilterChange("glassType", "")}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M18 6L6 18M6 6l12 12" />
                       </svg>
@@ -703,10 +649,7 @@ const Cocktails = () => {
               <div>
                 <FilterLabel>טכניקת הכנה</FilterLabel>
                 <FilterSelectWrapper>
-                  <FilterSelect
-                    value={filters.preparationMethod}
-                    onChange={(e) => handleFilterChange('preparationMethod', e.target.value)}
-                  >
+                  <FilterSelect value={filters.preparationMethod} onChange={(e) => handleFilterChange("preparationMethod", e.target.value)}>
                     <option value="">הכל</option>
                     {filterOptions.preparationMethod.map((method) => (
                       <option key={method} value={method}>
@@ -715,7 +658,7 @@ const Cocktails = () => {
                     ))}
                   </FilterSelect>
                   {filters.preparationMethod && (
-                    <ClearButton onClick={() => handleFilterChange('preparationMethod', '')}>
+                    <ClearButton onClick={() => handleFilterChange("preparationMethod", "")}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M18 6L6 18M6 6l12 12" />
                       </svg>
@@ -726,10 +669,7 @@ const Cocktails = () => {
               <div>
                 <FilterLabel>משפחה</FilterLabel>
                 <FilterSelectWrapper>
-                  <FilterSelect
-                    value={filters.family}
-                    onChange={(e) => handleFilterChange('family', e.target.value)}
-                  >
+                  <FilterSelect value={filters.family} onChange={(e) => handleFilterChange("family", e.target.value)}>
                     <option value="">הכל</option>
                     {filterOptions.family.map((family) => (
                       <option key={family} value={family}>
@@ -738,7 +678,7 @@ const Cocktails = () => {
                     ))}
                   </FilterSelect>
                   {filters.family && (
-                    <ClearButton onClick={() => handleFilterChange('family', '')}>
+                    <ClearButton onClick={() => handleFilterChange("family", "")}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M18 6L6 18M6 6l12 12" />
                       </svg>
@@ -748,24 +688,8 @@ const Cocktails = () => {
               </div>
               <div>
                 <FilterCheckbox>
-                  <input
-                    type="checkbox"
-                    id="testFilter"
-                    checked={filters.test}
-                    onChange={(e) => handleFilterChange('test', e.target.checked)}
-                  />
+                  <input type="checkbox" id="testFilter" checked={filters.test} onChange={(e) => handleFilterChange("test", e.target.checked)} />
                   <label htmlFor="testFilter">קוקטיילים למבחן</label>
-                </FilterCheckbox>
-              </div>
-              <div>
-                <FilterCheckbox>
-                  <input
-                    type="checkbox"
-                    id="personalMenuFilter"
-                    checked={filters.personalMenu}
-                    onChange={(e) => handleFilterChange('personalMenu', e.target.checked)}
-                  />
-                  <label htmlFor="personalMenuFilter">תפריט אישי</label>
                 </FilterCheckbox>
               </div>
             </FilterGrid>
@@ -782,11 +706,7 @@ const Cocktails = () => {
                   {cocktail.baseSpirit && (
                     <DetailItem>
                       <strong>אלכוהול בסיסי:</strong>
-                      <span>
-                        {Array.isArray(cocktail.baseSpirit) 
-                          ? cocktail.baseSpirit.join(' / ')
-                          : cocktail.baseSpirit}
-                      </span>
+                      <span>{Array.isArray(cocktail.baseSpirit) ? cocktail.baseSpirit.join(" / ") : cocktail.baseSpirit}</span>
                     </DetailItem>
                   )}
                   {cocktail.ingredients && cocktail.ingredients.length > 0 && (
@@ -802,9 +722,7 @@ const Cocktails = () => {
                   {cocktail.glassType && (
                     <DetailItem>
                       <strong>סוג כוס:</strong>
-                      <span>{Array.isArray(cocktail.glassType) 
-                          ? cocktail.glassType.join(' / ')
-                          : cocktail.glassType}</span>
+                      <span>{Array.isArray(cocktail.glassType) ? cocktail.glassType.join(" / ") : cocktail.glassType}</span>
                     </DetailItem>
                   )}
                   {cocktail.garnish && (
@@ -816,11 +734,7 @@ const Cocktails = () => {
                   {cocktail.preparationMethod && (
                     <DetailItem>
                       <strong>טכניקת הכנה:</strong>
-                      <span>
-                        {Array.isArray(cocktail.preparationMethod)
-                          ? cocktail.preparationMethod.join(' + ')
-                          : cocktail.preparationMethod}
-                      </span>
+                      <span>{Array.isArray(cocktail.preparationMethod) ? cocktail.preparationMethod.join(" + ") : cocktail.preparationMethod}</span>
                     </DetailItem>
                   )}
                   {cocktail.notes && (
@@ -839,10 +753,7 @@ const Cocktails = () => {
                     <DetailItem>
                       <strong>משפחה:</strong>
                       <FamilyContainer>
-                        <InfoIcon 
-                          onMouseEnter={() => setHoveredTooltip(`${cocktail.id}-${cocktail.family}`)}
-                          onMouseLeave={() => setHoveredTooltip(null)}
-                        >
+                        <InfoIcon onMouseEnter={() => setHoveredTooltip(`${cocktail.id}-${cocktail.family}`)} onMouseLeave={() => setHoveredTooltip(null)}>
                           &#9432;
                         </InfoIcon>
                         <span>{cocktail.family}</span>
@@ -866,4 +777,4 @@ const Cocktails = () => {
   );
 };
 
-export default Cocktails; 
+export default Cocktails;
